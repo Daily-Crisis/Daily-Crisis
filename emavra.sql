@@ -2,37 +2,40 @@ DROP DATABASE IF EXISTS `EMAVRA`;
 CREATE DATABASE `EMVRA`;
 USE `EMVRA`;
 
-
+DROP TABLE IF EXISTS `persona`;
+CREATE TABLE `persona` (
+`Carnet` int NOT NULL,
+`Apellido` varchar(70) DEFAULT NULL,
+`Nombre` varchar(70) DEFAULT NULL,
+`Correo` varchar(70) DEFAULT NULL,
+`Telefono` varchar(70) DEFAULT NULL,
+`Estado_civil` varchar(70) DEFAULT NULL,
+`Fecha_nacimiento` date DEFAULT NULL,
+`Lugar_nacimiento` varchar(70) DEFAULT NULL,
+PRIMARY KEY(`Carnet`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP TABLE IF EXISTS `empleados`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `empleados` (
-  `Carnet` int NOT NULL,
-  `IDempleado` int NOT NULL,
-  `Apellido` varchar(50) DEFAULT NULL,
-  `Nombre` varchar(50) DEFAULT NULL,
-  `Fecha_nacimiento` varchar(50) DEFAULT NULL,
-  `Lugar_nacimiendo` varchar(50) DEFAULT NULL,
-  `Estado_civil` varchar(50) DEFAULT NULL,
-  `Telefono` int DEFAULT NULL,
-  PRIMARY KEY (`Carnet`, `IDempleado`)
- /* CONSTRAINT `ads_ibfk_1` FOREIGN KEY (`IDpublicidad`) REFERENCES `publicidad` (`ID`),
-  CONSTRAINT `ads_ibfk_2` FOREIGN KEY (`IDinter`) REFERENCES `interfaz` (`ID`)*/ 
+  `IDpersona` int NOT NULL,
+  `IDempleado` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`IDpersona`, `IDempleado`),
+  KEY (`IDpersona`),
+  CONSTRAINT `empleados_ibfk_2` FOREIGN KEY (`IDpersona`) REFERENCES `persona` (`Carnet`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
   
   
   DROP TABLE IF EXISTS `provedores`;
   CREATE TABLE `provedores` (
-  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `Nombre` varchar(50) NOT NULL,
-  `Apellido` varchar(50) NOT NULL,
-  `Producto` varchar(50) NOT NULL,
-    `Nit` varchar(50) DEFAULT NULL,
-  `Numero` varchar(50) NOT NULL,
-  `Correo` varchar(50) NOT NULL,
-  `Empresa donde trabaja` varchar(100) NOT NULL, /*?????*/
-  PRIMARY KEY (`ID`)
+  `IDpersona` int NOT NULL,
+  `Empresa` varchar(100) NOT NULL, 
+  `Producto` varchar(70) NOT NULL,
+  `Nit` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`IDpersona`, `Empresa`),
+  KEY(`IDpersona`),
+  CONSTRAINT `provedores_ibfk_2` FOREIGN KEY (`IDpersona`) REFERENCES `persona` (`Carnet`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
 
 DROP TABLE IF EXISTS `procesos`;
@@ -42,50 +45,51 @@ CREATE TABLE `procesos`(
 `Ciclo_productivo` int DEFAULT NULL,
 `Division` varchar(50) DEFAULT NULL,
 `IDprovedor` int NOT NULL,
+`Empresa_provedor` varchar(100) NOT NULL, 
 `Cultivo` varchar(50) DEFAULT NULL,
 `Cantidad` int DEFAULT NULL,
 `Tipo_de_proceso` varchar(50) DEFAULT NULL,
 `Precio` int DEFAULT NULL,
 `Abono` varchar(50) DEFAULT NULL,
 PRIMARY KEY (`ID`),
-KEY (`IDprovedor`),
-CONSTRAINT `reaccion_ibfk_2` FOREIGN KEY (`IDprovedor`) REFERENCES `provedores` (`ID`)
+KEY (`IDprovedor`,`Empresa_provedor`),
+CONSTRAINT `procesos_ibfk_2` FOREIGN KEY (`IDprovedor`,`Empresa_provedor`) REFERENCES `provedores` (`IDpersona`,`Empresa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP TABLE IF EXISTS `clientes`;
 CREATE TABLE `clientes`(
-  `Carnet` int NOT NULL,
-  `Apellido` varchar(50) DEFAULT NULL,
-  `Nombre` varchar(50) DEFAULT NULL,
-  `Email` varchar(50) DEFAULT NULL,
-  `Numero` varchar(50) DEFAULT NULL,
-  `Nit` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`Carnet`)
+  `Nit` varchar(50)  NOT NULL,
+  `IDpersona` int NOT NULL,
+  
+  PRIMARY KEY (`Nit`),
+  KEY (`IDcliente`),
+  CONSTRAINT `clientes_ibfk_2` FOREIGN KEY (`IDpersona`) REFERENCES `persona` (`Carnet`)
+
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
   
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios`(
-  `Carnet` int NOT NULL,
+  `IDusuario` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `IDpersona` int NOT NULL,
   `Tipo_de_usuario` varchar(50) DEFAULT NULL,
-  `Apellido` varchar(50) DEFAULT NULL,
-  `Nombre` varchar(50) DEFAULT NULL,
-  `Email` varchar(50) DEFAULT NULL,
   `Contraseña` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`Carnet`)
+  PRIMARY KEY (`IDusuario`),
+  KEY (`IDpersona`),
+   CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`IDpersona`) REFERENCES `persona` (`Carnet`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
   
   
 
 DROP TABLE IF EXISTS `registros_de_actividad`;
 CREATE TABLE `registros_de_actividad`(
-  `Carnet` int NOT NULL,
+  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `Fecha` varchar(50) DEFAULT NULL,
   `Hora` varchar(50) DEFAULT NULL,
   `IDusuario` int NOT NULL,
   `Tipo_actividad` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`Carnet`), 
+  PRIMARY KEY (`ID`), 
     KEY `IDusuario` (`IDusuario`),
-	CONSTRAINT `reaccion_ibfk_2` FOREIGN KEY (`IDusuario`) REFERENCES `usuarios` (`ID`)
+	CONSTRAINT `registros_de_actividad_ibfk_2` FOREIGN KEY (`IDusuario`) REFERENCES `usuarios` (`ID`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
   
   
@@ -100,7 +104,7 @@ CREATE TABLE `registros_de_actividad`(
   `Saldo` int(100) NOT NULL,
   PRIMARY KEY (`ID`), 
     KEY `IDcliente` (`IDcliente`),
-	CONSTRAINT `reaccion_ibfk_2` FOREIGN KEY (`IDcliente`) REFERENCES `clientes` (`ID`)
+	CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`IDcliente`) REFERENCES `clientes` (`Nit`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
 
   
@@ -118,27 +122,26 @@ CREATE TABLE `registros_de_actividad`(
   `IDcliente` int NOT NULL,
   PRIMARY KEY (`ID`), 
     KEY `IDcliente` (`IDcliente`),
-	CONSTRAINT `reaccion_ibfk_2` FOREIGN KEY (`IDcliente`) REFERENCES `clientes` (`ID`)
+	CONSTRAINT `ventas_ibfk_2` FOREIGN KEY (`IDcliente`) REFERENCES `clientes` (`Nit`)
   )ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
   
   DROP TABLE IF EXISTS `facturacion`;
   CREATE TABLE `facturacion` (
-	`Carnet` int NOT NULL,
+	`IDfactura` int NOT NULL,
     `folio` varchar(50) DEFAULT NULL,
     `titulo` varchar(50) DEFAULT NULL,
     `IDcliente` int NOT NULL,
     `Num_embarque` int DEFAULT NULL,
     `Fecha_embarque` varchar(50) NOT NULL,
-    `Fecha_nacimiento` varchar(50) DEFAULT NULL,
     `Estado` varchar(50) DEFAULT NULL,
     `Moneda` varchar(50) DEFAULT NULL,
     `Uso_factura` varchar(50) DEFAULT NULL,
     `Metodo_pago` varchar(50) DEFAULT NULL,
     `Elaboro` varchar(50) DEFAULT NULL,
-    `Comentarios` varchar(50) DEFAULT NULL,
-    PRIMARY KEY (`Carnet`), 
+    `Comentarios` varchar(200) DEFAULT NULL,
+    PRIMARY KEY (`IDfactura`), 
     KEY `IDcliente` (`IDcliente`),
-	CONSTRAINT `reaccion_ibfk_2` FOREIGN KEY (`IDcliente`) REFERENCES `clientes` (`ID`)
+	CONSTRAINT `facturacion_ibfk_2` FOREIGN KEY (`IDcliente`) REFERENCES `clientes` (`Nit`)
   ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
 /*CONSTRAINT `reaccion_ibfk_1` FOREIGN KEY (`IDPublicacion`) REFERENCES `publicacion` (`ID`),
   CONSTRAINT `reaccion_ibfk_2` FOREIGN KEY (`IDUsuario`) REFERENCES `usuario` (`ID`)*/
