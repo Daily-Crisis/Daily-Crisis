@@ -89,7 +89,7 @@ CREATE TABLE `registros_de_actividad`(
   `Tipo_actividad` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`ID`), 
     KEY `IDusuario` (`IDusuario`),
-	CONSTRAINT `registros_de_actividad_ibfk_2` FOREIGN KEY (`IDusuario`) REFERENCES `usuarios` (`ID`)
+	CONSTRAINT `registros_de_actividad_ibfk_2` FOREIGN KEY (`IDusuario`) REFERENCES `usuarios` (`IDusuario`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
   
   
