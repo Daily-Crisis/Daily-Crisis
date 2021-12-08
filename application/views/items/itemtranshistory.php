@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-sm-12 form-group-sm form-inline">
             <div class="col-sm-4">
-                Show
+                Mostrar
                 <select id="itemPerPage" class="form-control">
                     <option value="5">5</option>
                     <option value="10" selected>10</option>
@@ -15,8 +15,8 @@
             </div>
             <div class="col-sm-4">
                 <select id="sortItems" class="form-control">
-                    <option value="">Sort by</option>
-                    <option value="code-asc">Item Code</option>
+                    <option value="">Ordenar por</option>
+                    <option value="code-asc">Codigo del elemento</option>
                 </select>
             </div>
             <div class="col-sm-4">

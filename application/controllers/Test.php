@@ -5,8 +5,6 @@ require_once "functions.php";
 /**
  * Description of Test
  *
- * @author Amir <amirsanni@gmail.com>
- * Date: Dec 31st, 2015
  */
 
 class Test extends CI_Controller {

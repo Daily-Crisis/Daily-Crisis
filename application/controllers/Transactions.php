@@ -4,8 +4,6 @@ require_once 'functions.php';
 /**
  * Description of Transactions
  *
- * @author Amir <amirsanni@gmail.com>
- * @date 31st Dec, 2015
  */
 class Transactions extends CI_Controller{
     private $total_before_discount = 0, $discount_amount = 0, $vat_amount = 0, $eventual_total = 0;

@@ -4,23 +4,23 @@ defined('BASEPATH') OR exit('');
 
 <?php echo isset($range) && !empty($range) ? "Showing ".$range : ""?>
 <div class="panel panel-primary">
-    <div class="panel-heading">ADMINISTRATOR ACCOUNTS</div>
+    <div class="panel-heading">CUENTAS DE ADMINISTRADORES</div>
     <?php if($allAdministrators):?>
     <div class="table table-responsive">
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>SN</th>
-                    <th>NAME</th>
-                    <th>E-MAIL</th>
-                    <th>MOBILE</th>
-                    <th>WORK</th>
-                    <th>ROLE</th>
-                    <th>DATE CREATED</th>
-                    <th>LAST LOG IN</th>
-                    <th>EDIT</th>
-                    <th>ACCOUNT STATUS</th>
-                    <th>DELETE</th>
+                    <th>CI</th>
+                    <th>NOMBRE</th>
+                    <th>CORREO</th>
+                    <th>TELEFONO</th>
+                    <th>TRABAJO</th>
+                    <th>PUESTO</th>
+                    <th>FECHA DE CREACIÓN</th>
+                    <th>ULTIMO INGRESO</th>
+                    <th>EDITAR</th>
+                    <th>ESTADO DE CUENTAS</th>
+                    <th>ELIMINAR</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('');
                         </td>
                         <td class="text-center text-danger deleteAdmin" id="del-<?=$get->id?>">
                             <?php if($get->deleted === "1"): ?>
-                            <a class="pointer">Undo Delete</a>
+                            <a class="pointer">Deshacer eliminación</a>
                             <?php else: ?>
                             <i class="fa fa-trash pointer"></i>
                             <?php endif; ?>
@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('');
         </table>
     </div>
     <?php else:?>
-    No Administrative Accounts
+        Sin cuentas administrativas
     <?php endif; ?>
 </div>
 <!-- Pagination -->

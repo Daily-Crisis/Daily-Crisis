@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('');
 
     <body>
         <nav class="navbar navbar-default hidden-print">
-            <div class="container-fluid">
+            <div class="container-fluid"  style="background-color: #2c3443;">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false">
@@ -55,8 +55,8 @@ defined('BASEPATH') OR exit('');
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?=base_url()?>" style="margin-top:-15px">
-                        <img src="<?=base_url()?>public/images/logo_black.png" alt="logo" class="img-responsive" width="73px">
+                    <a class="navbar-brand" href="<?=base_url()?>" style="margin-top:-5px">
+                        <img src="<?=base_url()?>public/images/logo_black.png" alt="logo" class="img-responsive" width="130px">
                     </a>
                 </div>
 
@@ -123,11 +123,7 @@ defined('BASEPATH') OR exit('');
                         <?php endif; ?>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a>
-                                Total Earned Today: <b>&#8369;<span id="totalEarnedToday"></span></b>
-                            </a>
-                        </li>
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-user navbarIcons"></i>
@@ -153,32 +149,66 @@ defined('BASEPATH') OR exit('');
             </div><!-- /.container-fluid -->
         </nav>
 
-        <div class="container-fluid hidden-print">
+        <div class="container-fluid hidden-print" style="background-color: #e9eaec;">
             <div class="row content">
                 <!-- Left sidebar -->
-                <div class="col-sm-2 sidenav hidden-xs mySideNav">
+                <div class="col-sm-2 sidenav hidden-xs mySideNav" style="background-color:#34533c;">
                     <br>
                     <ul class="nav nav-pills nav-stacked pointer">
                         <li class="<?= $pageTitle == 'Dashboard' ? 'active' : '' ?>">
-                            <a href="<?= site_url('dashboard') ?>">
+                            <a href="<?= site_url('dashboard') ?>" style="color:#FFFFFF;">
                                 <i class="fa fa-home"></i>
-                                Dashboard
+                                Inicio
                             </a>
                         </li>
                         <li class="<?= $pageTitle == 'Transactions' ? 'active' : '' ?>">
-                            <a href="<?= site_url('transactions') ?>">
+                            <a href="<?= site_url('transactions') ?>" style="color:#FFFFFF;">
                                 <i class="fa fa-exchange"></i>
-                                Transactions
+                                Transacciones
+                            </a>
+                        </li>
+                        <li class="<?= $pageTitle == 'Reservations' ? 'active' : '' ?>">
+                            <a href="<?= site_url('reservations') ?>" style="color:#FFFFFF;">
+                                <i class="fa fa-exchange"></i>
+                                Reservas
                             </a>
                         </li>
                         
                         <?php if($this->session->admin_role === "Super"):?>
                         <li class="<?= $pageTitle == 'Items' ? 'active' : '' ?>">
-                            <a href="<?= site_url('items') ?>">
+                            <a href="<?= site_url('items') ?>" style="color:#FFFFFF;">
                                 <i class="fa fa-shopping-cart"></i>
-                                Inventory Items
+                                Inventario
                             </a>
                         </li>
+
+                        <li class="<?= $pageTitle == 'Processes' ? 'active' : '' ?>">
+                             <a href="<?= site_url('processes') ?>" style="color:#FFFFFF;">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Procesos
+                             </a>
+                        </li>
+
+                            <li class="<?= $pageTitle == 'Administrators' ? 'active' : '' ?>">
+                                <a href="<?= site_url('administrators') ?>" style="color:#FFFFFF;">
+                                    <i class="fa fa-user"></i>
+                                    Gestión Administrativa
+                                </a>
+                            </li>
+
+                            <li class="<?= $pageTitle == 'Suppliers' ? 'active' : '' ?>">
+                                <a href="<?= site_url('suppliers') ?>" style="color:#FFFFFF;">
+                                    <i class="fa fa-user"></i>
+                                    Proveedores
+                                </a>
+                            </li>
+
+                            <li class="<?= $pageTitle == 'Clients' ? 'active' : '' ?>">
+                                <a href="<?= site_url('clients') ?>" style="color:#FFFFFF;">
+                                    <i class="fa fa-user"></i>
+                                    Clientes
+                                </a>
+                            </li>
                         
                         <!--
                         <li class="<?= $pageTitle == 'Employees' ? 'active' : '' ?>">
@@ -198,21 +228,16 @@ defined('BASEPATH') OR exit('');
                                 <i class="fa fa-tasks"></i>
                                 Event Log
                             </a>
-                        </li>--->
+                        </li>-->
                         
                         <li class="<?= $pageTitle == 'Database' ? 'active' : '' ?>">
-                            <a href="<?= site_url('dbmanagement') ?>">
+                            <a href="<?= site_url('dbmanagement') ?>" style="color:#FFFFFF;">
                                 <i class="fa fa-database"></i>
-                                Database Management
+                                Administración de Base de Datos
                             </a>
                         </li>
                         
-                        <li class="<?= $pageTitle == 'Administrators' ? 'active' : '' ?>">
-                            <a href="<?= site_url('administrators') ?>">
-                                <i class="fa fa-user"></i>
-                                Admin Management
-                            </a>
-                        </li>
+
                         <?php endif; ?>
                     </ul>
                     <br>
@@ -231,7 +256,7 @@ defined('BASEPATH') OR exit('');
         <footer class="container-fluid text-center hidden-print">
             <p>
                 <i class="fa fa-copyright"></i>
-                Copyright <a href="http://www.amirsanni.com">Amir Sanni</a> (2016)
+                Copyright <a href="https://sistemas.upb.edu/user/login">Daily Crisis</a> (2021)
             </p>
         </footer>
 

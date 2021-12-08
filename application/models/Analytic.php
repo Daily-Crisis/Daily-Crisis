@@ -4,8 +4,6 @@ defined('BASEPATH') OR exit(':D');
 /**
  * Description of Analytic
  *
- * @author Amir <amirsanni@gmail.com>
- * @date 12-Aug-2016
  */
 class Analytic extends CI_Model{
     

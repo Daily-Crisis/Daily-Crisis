@@ -45,12 +45,49 @@ CREATE TABLE `admin` (
   `deleted` char(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `supplier` (
+   `id` int(3) NOT NULL,
+   `first_name` varchar(25) NOT NULL,
+   `last_name` varchar(25) NOT NULL,
+   `email` varchar(255) NOT NULL,
+   `mobile1` varchar(15) NOT NULL,
+   `mobile2` varchar(15) NOT NULL,
+   `password` char(60) NOT NULL,
+   `role` char(20) NOT NULL,
+   `created_on` datetime NOT NULL,
+   `last_login` datetime NOT NULL,
+   `last_seen` datetime NOT NULL,
+   `last_edited` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+   `account_status` char(1) NOT NULL DEFAULT '1',
+   `deleted` char(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `client` (
+                          `id` int(3) NOT NULL,
+                          `first_name` varchar(25) NOT NULL,
+                          `last_name` varchar(25) NOT NULL,
+                          `email` varchar(255) NOT NULL,
+                          `mobile1` varchar(15) NOT NULL,
+                          `mobile2` varchar(15) NOT NULL,
+                          `password` char(60) NOT NULL,
+                          `role` char(5) NOT NULL,
+                          `created_on` datetime NOT NULL,
+                          `last_login` datetime NOT NULL,
+                          `last_seen` datetime NOT NULL,
+                          `last_edited` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                          `account_status` char(1) NOT NULL DEFAULT '1',
+                          `deleted` char(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `first_name`, `last_name`, `email`, `mobile1`, `mobile2`, `password`, `role`, `created_on`, `last_login`, `last_seen`, `last_edited`, `account_status`, `deleted`) VALUES
 (1, 'Admin', 'Demo', 'demo@1410inc.xyz', '08021111111', '07032222222', '$2y$10$xv9I14OlR36kPCjlTv.wEOX/6Dl7VMuWCl4vCxAVWP1JwYIaw4J2C', 'Super', '2017-01-04 22:19:16', '2018-05-18 16:47:21', '2018-05-18 17:28:09', '2018-05-18 16:28:09', '1', '0');
+INSERT INTO `client` (`id`, `first_name`, `last_name`, `email`, `mobile1`, `mobile2`, `password`, `role`, `created_on`, `last_login`, `last_seen`, `last_edited`, `account_status`, `deleted`) VALUES
+    (1, 'Rosario', 'Santa Cruz', 'rosasanc@gmail.com', '07032222222', '07032222222', 'qwerty123', 'Super', '2017-01-04 22:19:16', '2018-05-18 16:47:21', '2018-05-18 17:28:09', '2018-05-18 16:28:09', '1', '0');
+
 
 -- --------------------------------------------------------
 
@@ -83,6 +120,17 @@ CREATE TABLE `items` (
   `quantity` int(6) NOT NULL,
   `dateAdded` datetime NOT NULL,
   `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `processes` (
+                         `id` bigint(20) UNSIGNED NOT NULL,
+                         `name` varchar(50) NOT NULL,
+                         `code` varchar(50) NOT NULL,
+                         `description` text,
+                         `unitPrice` decimal(10,2) NOT NULL,
+                         `quantity` int(6) NOT NULL,
+                         `dateAdded` datetime NOT NULL,
+                         `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -131,6 +179,33 @@ CREATE TABLE `transactions` (
   `cancelled` char(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `reservations` (
+                                `resId` bigint(20) UNSIGNED NOT NULL,
+                                `ref` varchar(10) NOT NULL,
+                                `itemName` varchar(50) NOT NULL,
+                                `itemCode` varchar(50) NOT NULL,
+                                `description` text,
+                                `quantity` int(6) NOT NULL,
+                                `unitPrice` decimal(10,2) NOT NULL,
+                                `totalPrice` decimal(10,2) NOT NULL,
+                                `totalMoneySpent` decimal(10,2) NOT NULL,
+                                `amountTendered` decimal(10,2) NOT NULL,
+                                `discount_amount` decimal(10,2) NOT NULL,
+                                `discount_percentage` decimal(10,2) NOT NULL,
+                                `vatPercentage` decimal(10,2) NOT NULL,
+                                `vatAmount` decimal(10,2) NOT NULL,
+                                `changeDue` decimal(10,2) NOT NULL,
+                                `modeOfPayment` varchar(20) NOT NULL,
+                                `cust_name` varchar(20) DEFAULT NULL,
+                                `cust_phone` varchar(15) DEFAULT NULL,
+                                `cust_email` varchar(50) DEFAULT NULL,
+                                `resType` char(1) NOT NULL,
+                                `staffId` bigint(20) UNSIGNED NOT NULL,
+                                `resDate` datetime NOT NULL,
+                                `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                `cancelled` char(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -140,6 +215,16 @@ CREATE TABLE `transactions` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `mobile1` (`mobile1`);
+
+ALTER TABLE `supplier`
+    ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `mobile1` (`mobile1`);
+
+ALTER TABLE `client`
+    ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `mobile1` (`mobile1`);
 
@@ -157,11 +242,19 @@ ALTER TABLE `items`
   ADD UNIQUE KEY `name` (`name`),
   ADD UNIQUE KEY `code` (`code`);
 
+ALTER TABLE `processes`
+    ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `code` (`code`);
+
 --
 -- Indexes for table `transactions`
 --
 ALTER TABLE `transactions`
   ADD PRIMARY KEY (`transId`);
+
+ALTER TABLE `reservations`
+    ADD PRIMARY KEY (`resId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -173,6 +266,16 @@ ALTER TABLE `transactions`
 ALTER TABLE `admin`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `supplier`
+--
+ALTER TABLE `supplier`
+    MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `client`
+    MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `eventlog`
 --
 ALTER TABLE `eventlog`
@@ -183,10 +286,20 @@ ALTER TABLE `eventlog`
 ALTER TABLE `items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `processes`
+--
+ALTER TABLE `processes`
+    MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
   MODIFY `transId` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;COMMIT;
+--
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `reservations`
+    MODIFY `resId` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

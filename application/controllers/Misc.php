@@ -5,8 +5,6 @@ defined('BASEPATH') OR exit('');
  * Description of Misc
  * Do not check login status in the constructor of this class and some functions are to be accessed even without logging in
  *
- * @author Amir <amirsanni@gmail.com>
- * date 17th Feb. 2016
  */
 class Misc extends CI_Controller{
     public function __construct() {

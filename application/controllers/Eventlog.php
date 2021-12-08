@@ -4,9 +4,6 @@ defined('BASEPATH') OR exit('');
 /**
  * Description of Eventlog
  *
- * @author Amir <amirsanni@gmail.com>
- * @date 20th Rab. Awwal, 1437AH
- * @date 1st Jan, 2016
  */
 class Eventlog extends CI_Controller{
     

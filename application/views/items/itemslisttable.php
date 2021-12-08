@@ -4,28 +4,28 @@
     <?= isset($range) && !empty($range) ? $range : ""; ?>
 </div>
 
-<div class='col-sm-6 text-right'><b>Items Total Worth/Price:</b> &#8369;<?=$cum_total ? number_format($cum_total, 2) : '0.00'?></div>
+<div class='col-sm-6 text-right'><b>Valor/precio total de los elementos:</b>Bs. <?=$cum_total ? number_format($cum_total, 2) : '0.00'?></div>
 
 <div class='col-xs-12'>
     <div class="panel panel-primary">
         <!-- Default panel contents -->
-        <div class="panel-heading">Items</div>
+        <div class="panel-heading">Elementos</div>
         <?php if($allItems): ?>
         <div class="table table-responsive">
             <table class="table table-bordered table-striped" style="background-color: #f5f5f5">
                 <thead>
                     <tr>
-                        <th>SN</th>
-                        <th>ITEM NAME</th>
-                        <th>ITEM CODE</th>
-                        <th>DESCRIPTION</th>
-                        <th>QTY IN STOCK</th>
-                        <th>UNIT PRICE</th>
-                        <th>TOTAL SOLD</th>
-                        <th>TOTAL EARNED ON ITEM</th>
-                        <th>UPDATE QUANTITY</th>
-                        <th>EDIT</th>
-                        <th>DELETE</th>
+                        <th>Nº</th>
+                        <th>NOMBRE</th>
+                        <th>CÓDIGO</th>
+                        <th>DESCRIPCIÓN</th>
+                        <th>EN STOCK</th>
+                        <th>PRECIO UNITARIO</th>
+                        <th>VENTA TOTAL</th>
+                        <th>GANANCIA TOTAL EN EL ELEMENTO</th>
+                        <th>ACTUALIZAR CANTIDAD</th>
+                        <th>EDITAR</th>
+                        <th>ELIMINAR</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,12 +43,12 @@
                         <td class="<?=$get->quantity <= 10 ? 'bg-danger' : ($get->quantity <= 25 ? 'bg-warning' : '')?>">
                             <span id="itemQuantity-<?=$get->id?>"><?=$get->quantity?></span>
                         </td>
-                        <td>&#8369;<span id="itemPrice-<?=$get->id?>"><?=number_format($get->unitPrice, 2)?></span></td>
+                        <td>Bs. <span id="itemPrice-<?=$get->id?>"><?=number_format($get->unitPrice, 2)?></span></td>
                         <td><?=$this->genmod->gettablecol('transactions', 'SUM(quantity)', 'itemCode', $get->code)?></td>
                         <td>
-                            &#8369;<?=number_format($this->genmod->gettablecol('transactions', 'SUM(totalPrice)', 'itemCode', $get->code), 2)?>
+                            Bs. <?=number_format($this->genmod->gettablecol('transactions', 'SUM(totalPrice)', 'itemCode', $get->code), 2)?>
                         </td>
-                        <td><a class="pointer updateStock" id="stock-<?=$get->id?>">Update Quantity</a></td>
+                        <td><a class="pointer updateStock" id="stock-<?=$get->id?>">Actualizar cantidad</a></td>
                         <td class="text-center text-primary">
                             <span class="editItem" id="edit-<?=$get->id?>"><i class="fa fa-pencil pointer"></i> </span>
                         </td>
@@ -61,7 +61,7 @@
         </div>
         <!-- table div end-->
         <?php else: ?>
-        <ul><li>No items</li></ul>
+        <ul><li>Sin elementos</li></ul>
         <?php endif; ?>
     </div>
     <!--- panel end-->

@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <div style="font-size:100px">
-                                <h1><img src="<?=base_url()?>public/images/logo_white.png" alt="1410-logo" height="150px"></h1>
+                                <h1><img src="<?=base_url()?>public/images/logo_white.png" alt="1410-logo" height="250px"></h1>
                             </div>
                         </div>
                     </div>
@@ -71,13 +71,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <form id="loginForm">
                                     <div class="form-group">
                                         <label class="sr-only" for="email">E-mail</label>
-                                        <input type="email" placeholder="Email" class="form-control checkField" id="email" >
+                                        <input type="email" placeholder="Correo Electrónico" class="form-control checkField" id="email" >
                                     </div>
                                     <div class="form-group">
                                         <label class="sr-only" for="password">Password</label>
-                                        <input type="password" placeholder="Password" class="form-control checkField" id="password" >
+                                        <input type="password" placeholder="Contraseña" class="form-control checkField" id="password" >
                                     </div>
-                                    <button type="submit" class="btn">Log in!</button>
+                                    <button style="background-color:MediumSeaGreen;" type="submit" class="btn">Iniciar Sesión</button>
                                 </form>
                             </div>
                         </div>

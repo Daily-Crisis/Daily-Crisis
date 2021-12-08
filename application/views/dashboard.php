@@ -9,10 +9,10 @@ defined('BASEPATH') OR exit('');
                 <div class="pull-left"><i class="fa fa-exchange"></i></div>
                 <div class="pull-right">
                     <div><?=$totalSalesToday?></div>
-                    <div class="latestStuffsText">Total Sales Today</div>
+                    <div class="latestStuffsText">Total Diario de Ventas</div>
                 </div>
             </div>
-            <div class="panel-footer text-center" style="color:#5cb85c">Number of Items Sold Today</div>
+            <div class="panel-footer text-center" style="color:#5cb85c">Número Diario de Items Vendidos</div>
         </div>
     </div>
     <div class="col-sm-4">
@@ -21,10 +21,10 @@ defined('BASEPATH') OR exit('');
                 <div class="pull-left"><i class="fa fa-tasks"></i></div>
                 <div class="pull-right">
                     <div><?=$totalTransactions?></div>
-                    <div class="latestStuffsText pull-right">Total Transactions</div>
+                    <div class="latestStuffsText pull-right">Total de Transacciones</div>
                 </div>
             </div>
-            <div class="panel-footer text-center" style="color:#f0ad4e">All-time Total Transactions</div>
+            <div class="panel-footer text-center" style="color:#f0ad4e">Número Total de Transacciones</div>
         </div>
     </div>
     <div class="col-sm-4">
@@ -33,16 +33,16 @@ defined('BASEPATH') OR exit('');
                 <div class="pull-left"><i class="fa fa-shopping-cart"></i></div>
                 <div class="pull-right">
                     <div><?=$totalItems?></div>
-                    <div class="latestStuffsText pull-right">Items in Stock</div>
+                    <div class="latestStuffsText pull-right">Elementos en Inventario</div>
                 </div>
             </div>
-            <div class="panel-footer text-center" style="color:#337ab7">Total Items in Stock</div>
+            <div class="panel-footer text-center" style="color:#337ab7">Número de Elementos en Inventario</div>
         </div>
     </div>
 </div>
 
 
-<!-- ROW OF GRAPH/CHART OF EARNINGS PER MONTH/YEAR-->
+<!-- ROW OF GRAPH/CHART OF EARNINGS PER MONTH/YEAR
 <div class="row margin-top-5">
     <div class="col-sm-9">
         <div class="box">
@@ -74,10 +74,10 @@ defined('BASEPATH') OR exit('');
           </center>
         </section>
     </div>
-</div>
+</div>-->
 <!-- END OF ROW OF GRAPH/CHART OF EARNINGS PER MONTH/YEAR-->
 
-<!-- ROW OF SUMMARY -->
+<!-- ROW OF SUMMARY
 <div class="row margin-top-5">
     <div class="col-sm-3">
         <div class="panel panel-hash">
@@ -182,8 +182,8 @@ defined('BASEPATH') OR exit('');
             <?php endif; ?> 
         </div>
     </div>
-</div>
-<!-- END OF ROW OF SUMMARY -->
+</div>-->
+<!-- END OF ROW OF SUMMARY
 
 <div class="row">
     <div class="col-sm-6">
@@ -331,6 +331,6 @@ defined('BASEPATH') OR exit('');
         </div>
     </div>
 </div>
-
+-->
 <script src="<?=base_url('public/js/chart.js'); ?>"></script>
 <script src="<?=base_url('public/js/dashboard.js')?>"></script>

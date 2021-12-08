@@ -5,8 +5,6 @@ defined('BASEPATH') OR exit('');
 /**
  * Description of Transaction
  *
- * @author Amir <amirsanni@gmail.com>
- * @date 27th RabAwwal, 1437A.H (8th Jan., 2016)
  */
 class Transaction extends CI_Model {
 

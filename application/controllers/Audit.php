@@ -3,10 +3,6 @@ defined('BASEPATH') OR exit('');
 
 /**
  * Description of Home
- *
- * @author Amir <amirsanni@gmail.com>
- * @date 20th Rab. Awwal, 1437AH
- * @date 1st Jan, 2016
  */
 class Audit extends CI_Controller{
     
