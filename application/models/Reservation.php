@@ -188,7 +188,7 @@ class Reservation extends CI_Model {
      * @param type $ref
      * @return boolean
      */
-    public function getresinfo($ref) {
+    public function getresinfo($id) {
         $q = "SELECT * FROM reservations WHERE ref = ?";
 
         $run_q = $this->db->query($q, [$ref]);
