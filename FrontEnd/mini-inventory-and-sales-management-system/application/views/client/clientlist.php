@@ -14,12 +14,11 @@ defined('BASEPATH') OR exit('');
                     <th>NOMBRE</th>
                     <th>CORREO</th>
                     <th>TELEFONO</th>
-                    <th>TRABAJO</th>
-                    <th>PUESTO</th>
+                    <th>OBSERVACIONES</th>
+                    <th>TIPO DE CLIENTE</th>
                     <th>FECHA DE CREACIÓN</th>
-                    <th>ULTIMO INGRESO</th>
                     <th>EDITAR</th>
-                    <th>ESTADO DE CUENTAS</th>
+                    <th>ESTADO DE PERFIL</th>
                     <th>ELIMINAR</th>
                 </tr>
             </thead>
@@ -35,9 +34,7 @@ defined('BASEPATH') OR exit('');
                         <td class="clientMobile2"><?=$get->mobile2?></td>
                         <td class="clientRole"><?=ucfirst($get->role)?></td>
                         <td><?=date('jS M, Y h:i:sa', strtotime($get->created_on))?></td>
-                        <td>
-                            <?=$get->last_login === "0000-00-00 00:00:00" ? "---" : date('jS M, Y h:i:sa', strtotime($get->last_login))?>
-                        </td>
+
                         <td class="text-center editClient" id="edit-<?=$get->id?>">
                             <i class="fa fa-pencil pointer"></i>
                         </td>

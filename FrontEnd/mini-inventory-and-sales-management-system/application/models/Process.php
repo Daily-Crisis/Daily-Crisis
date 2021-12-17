@@ -30,6 +30,8 @@ class Process extends CI_Model{
             return FALSE;
         }
     }
+
+
     
     /*
     ********************************************************************************************************************************
@@ -83,7 +85,7 @@ class Process extends CI_Model{
      * @param type $value
      * @return boolean
      */
-    public function processesearch($value){
+    public function processsearch($value){
         $q = "SELECT * FROM processes 
             WHERE 
             name LIKE '%".$this->db->escape_like_str($value)."%'

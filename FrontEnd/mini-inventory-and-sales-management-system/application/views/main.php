@@ -156,19 +156,19 @@ defined('BASEPATH') OR exit('');
                     <br>
                     <ul class="nav nav-pills nav-stacked pointer">
                         <li class="<?= $pageTitle == 'Dashboard' ? 'active' : '' ?>">
-                            <a href="<?= site_url('dashboard') ?>" style="color:#FFFFFF;">
+                            <a id ="init" href="<?= site_url('dashboard') ?>" style="color:#FFFFFF;"  onmouseenter="myEnter1()"  onmouseout="myOut1()"  onclick="this.onmouseover=null; this.onmouseout=null;myClick1()" >
                                 <i class="fa fa-home"></i>
                                 Inicio
                             </a>
                         </li>
                         <li class="<?= $pageTitle == 'Transactions' ? 'active' : '' ?>">
-                            <a href="<?= site_url('transactions') ?>" style="color:#FFFFFF;">
+                            <a id ="trans" href="<?= site_url('transactions') ?>" style="color:#FFFFFF;"  onmouseenter="myEnter2()"  onclick="myClick2()" onmouseout="myOut2()" >
                                 <i class="fa fa-exchange"></i>
                                 Transacciones
                             </a>
                         </li>
                         <li class="<?= $pageTitle == 'Reservations' ? 'active' : '' ?>">
-                            <a href="<?= site_url('reservations') ?>" style="color:#FFFFFF;">
+                            <a id ="res" href="<?= site_url('reservations') ?>" style="color:#FFFFFF;"  onmouseenter="myEnter3()"  onclick="myClick3()" onmouseout="myOut3()" >
                                 <i class="fa fa-exchange"></i>
                                 Reservas
                             </a>
@@ -176,35 +176,35 @@ defined('BASEPATH') OR exit('');
                         
                         <?php if($this->session->admin_role === "Super"):?>
                         <li class="<?= $pageTitle == 'Items' ? 'active' : '' ?>">
-                            <a href="<?= site_url('items') ?>" style="color:#FFFFFF;">
+                            <a id ="inv" href="<?= site_url('items') ?>"  style="color:#FFFFFF;"  onmouseenter="myEnter4()"  onclick="myClick4()" onmouseout="myOut4()" >
                                 <i class="fa fa-shopping-cart"></i>
                                 Inventario
                             </a>
                         </li>
 
                         <li class="<?= $pageTitle == 'Processes' ? 'active' : '' ?>">
-                             <a href="<?= site_url('processes') ?>" style="color:#FFFFFF;">
+                             <a id ="proc" href="<?= site_url('processes') ?>"style="color:#FFFFFF;"  onmouseenter="myEnter5()"  onclick="myClick5()" onmouseout="myOut5()" >
                                     <i class="fa fa-shopping-cart"></i>
                                     Procesos
                              </a>
                         </li>
 
                             <li class="<?= $pageTitle == 'Administrators' ? 'active' : '' ?>">
-                                <a href="<?= site_url('administrators') ?>" style="color:#FFFFFF;">
+                                <a  id ="admi" href="<?= site_url('administrators') ?>" style="color:#FFFFFF;"  onmouseenter="myEnter6()"  onclick="myClick6()" onmouseout="myOut6()" >
                                     <i class="fa fa-user"></i>
                                     Gestión Administrativa
                                 </a>
                             </li>
 
                             <li class="<?= $pageTitle == 'Suppliers' ? 'active' : '' ?>">
-                                <a href="<?= site_url('suppliers') ?>" style="color:#FFFFFF;">
+                                <a id ="supp" href="<?= site_url('suppliers') ?>" style="color:#FFFFFF;"  onmouseenter="myEnter7()"  onclick="myClick7()" onmouseout="myOut7()" >
                                     <i class="fa fa-user"></i>
                                     Proveedores
                                 </a>
                             </li>
 
                             <li class="<?= $pageTitle == 'Clients' ? 'active' : '' ?>">
-                                <a href="<?= site_url('clients') ?>" style="color:#FFFFFF;">
+                                <a id ="cli" href="<?= site_url('clients') ?>" style="color:#FFFFFF;"  onmouseenter="myEnter8()"  onclick="myClick8()" onmouseout="myOut8()" >
                                     <i class="fa fa-user"></i>
                                     Clientes
                                 </a>
@@ -231,7 +231,7 @@ defined('BASEPATH') OR exit('');
                         </li>-->
                         
                         <li class="<?= $pageTitle == 'Database' ? 'active' : '' ?>">
-                            <a href="<?= site_url('dbmanagement') ?>" style="color:#FFFFFF;">
+                            <a id ="bd" href="<?= site_url('dbmanagement') ?>" style="color:#FFFFFF "  onmouseenter="myEnter9()"  onclick="myClick9()" onmouseout="myOut9()">
                                 <i class="fa fa-database"></i>
                                 Administración de Base de Datos
                             </a>
@@ -331,3 +331,112 @@ defined('BASEPATH') OR exit('');
         <!---end of Login Modal-->
     </body>
 </html>
+
+<script>
+    function myClick1() {
+        document.getElementById("init").style:focus.backgroundColor = "#5ca434";
+    }
+
+    function myEnter1() {
+        document.getElementById("init").style.backgroundColor = "#4c7354";
+    }
+
+    function myOut1() {
+        document.getElementById("init").style.backgroundColor = "#34533c";
+    }
+
+    function myClick2() {
+        document.getElementById("trans").style.backgroundColor = "#5ca434";
+    }
+
+    function myEnter2() {
+        document.getElementById("trans").style.backgroundColor = "#4c7354";
+    }
+
+    function myOut2() {
+        document.getElementById("trans").style.backgroundColor = "#34533c";
+    }
+    function myClick3() {
+        document.getElementById("res").style.backgroundColor = "#5ca434";
+    }
+
+    function myEnter3() {
+        document.getElementById("res").style.backgroundColor = "#4c7354";
+    }
+
+    function myOut3() {
+        document.getElementById("res").style.backgroundColor = "#34533c";
+    }
+
+    function myClick4() {
+        document.getElementById("inv").style.backgroundColor = "#5ca434";
+    }
+
+    function myEnter4() {
+        document.getElementById("inv").style.backgroundColor = "#4c7354";
+    }
+
+    function myOut4() {
+        document.getElementById("inv").style.backgroundColor = "#34533c";
+    }
+
+    function myClick5() {
+        document.getElementById("proc").style.backgroundColor = "#5ca434";
+    }
+
+    function myEnter5() {
+        document.getElementById("proc").style.backgroundColor = "#4c7354";
+    }
+
+    function myOut5() {
+        document.getElementById("proc").style.backgroundColor = "#34533c";
+    }
+
+    function myClick6() {
+        document.getElementById("admi").style.backgroundColor = "#5ca434";
+    }
+
+    function myEnter6() {
+        document.getElementById("admi").style.backgroundColor = "#4c7354";
+    }
+
+    function myOut6() {
+        document.getElementById("admi").style.backgroundColor = "#34533c";
+    }
+
+    function myClick7() {
+        document.getElementById("supp").style.backgroundColor = "#5ca434";
+    }
+
+    function myEnter7() {
+        document.getElementById("supp").style.backgroundColor = "#4c7354";
+    }
+
+    function myOut7() {
+        document.getElementById("supp").style.backgroundColor = "#34533c";
+    }
+
+    function myClick8() {
+        document.getElementById("cli").style.backgroundColor = "#5ca434";
+    }
+
+    function myEnter8() {
+        document.getElementById("cli").style.backgroundColor = "#4c7354";
+    }
+
+    function myOut8() {
+        document.getElementById("cli").style.backgroundColor = "#34533c";
+    }
+
+    function myClick9() {
+        document.getElementById("bd").style.backgroundColor = "#5ca434";
+    }
+
+    function myEnter9() {
+        document.getElementById("bd").style.backgroundColor = "#4c7354";
+    }
+
+    function myOut9() {
+        document.getElementById("bd").style.backgroundColor = "#34533c";
+    }
+</script>

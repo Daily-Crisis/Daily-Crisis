@@ -60,7 +60,6 @@ defined('BASEPATH') OR exit('');
             <!--Form to add/update an item-->
             <div class="col-sm-4 hidden" id='createNewItemDiv'>
                 <div class="well">
-                    <button class="btn btn-info btn-xs pull-left" id="useBarcodeScanner">Usar escáner</button>
                     <button class="close cancelAddItem">&times;</button><br>
                     <form name="addNewItemForm" id="addNewItemForm" role="form">
                         <div class="text-center errMsg" id='addCustErrMsg'></div>
