@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('');
 </div>
 
 
-<!-- ROW OF GRAPH/CHART OF EARNINGS PER MONTH/YEAR
+ROW OF GRAPH/CHART OF EARNINGS PER MONTH/YEAR
 <div class="row margin-top-5">
     <div class="col-sm-9">
         <div class="box">
@@ -75,9 +75,7 @@ defined('BASEPATH') OR exit('');
         </section>
     </div>
 </div>-->
-<!-- END OF ROW OF GRAPH/CHART OF EARNINGS PER MONTH/YEAR-->
 
-<!-- ROW OF SUMMARY
 <div class="row margin-top-5">
     <div class="col-sm-3">
         <div class="panel panel-hash">
@@ -183,7 +181,6 @@ defined('BASEPATH') OR exit('');
         </div>
     </div>
 </div>-->
-<!-- END OF ROW OF SUMMARY
 
 <div class="row">
     <div class="col-sm-6">
