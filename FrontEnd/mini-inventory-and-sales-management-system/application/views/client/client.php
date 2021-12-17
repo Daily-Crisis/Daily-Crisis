@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('');
         <div class="modal-content">
             <div class='modal-header'>
                 <button class="close" data-dismiss='modal'>&times;</button>
-                <h4 class="text-center">Añadir nuevo cliente</h4>
+                <h4 class="text-center">Añadir Nuevo Cliente</h4>
                 <div class="text-center">
                     <i id="fMsgIcon"></i><span id="fMsg"></span>
                 </div>
@@ -90,11 +90,11 @@ defined('BASEPATH') OR exit('');
                             <span class="help-block errMsg" id="emailErr"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
-                            <label for='role' class="control-label">Puesto</label>
+                            <label for='role' class="control-label">Tipo de Cliente</label>
                             <select class="form-control checkField" id='role'>
-                                <option value=''>Puesto</option>
-                                <option value='Super'>Cliente</option>
-                                <option value='Basic'>Empleado</option>
+                                <option value=''>Tipo</option>
+                                <option value='Nuevo'>Cliente Nuevo</option>
+                                <option value='Regular'>Cliente Regular</option>
                             </select>
                             <span class="help-block errMsg" id="roleErr"></span>
                         </div>
@@ -172,11 +172,11 @@ defined('BASEPATH') OR exit('');
                             <span class="help-block errMsg" id="emailEditErr"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
-                            <label for='roleEdit' class="control-label">Puesto</label>
+                            <label for='roleEdit' class="control-label">Tipo de Cliente</label>
                             <select class="form-control checkField" id='roleEdit'>
-                                <option value=''>Puesto</option>
-                                <option value='Super'>Cliente</option>
-                                <option value='Basic'>Empleado</option>
+                                <option value=''>Tipo</option>
+                                <option value='Nuevo'>Cliente Nuevo</option>
+                                <option value='Regular'>Cliente Regular</option>
                             </select>
                             <span class="help-block errMsg" id="roleEditErr"></span>
                         </div>

@@ -13,13 +13,12 @@ defined('BASEPATH') OR exit('');
                     <th>CI</th>
                     <th>NOMBRE</th>
                     <th>CORREO</th>
-                    <th>TELEFONO</th>
-                    <th>TRABAJO</th>
-                    <th>PUESTO</th>
+                    <th>TELÉFONO</th>
+                    <th>OBSERVACIONES</th>
+                    <th>EMPRESA</th>
                     <th>FECHA DE CREACIÓN</th>
-                    <th>ULTIMO INGRESO</th>
                     <th>EDITAR</th>
-                    <th>ESTADO DE CUENTAS</th>
+                    <th>ESTADO DE PERFIL</th>
                     <th>ELIMINAR</th>
                 </tr>
             </thead>
@@ -27,17 +26,14 @@ defined('BASEPATH') OR exit('');
                 <?php foreach($allSuppliers as $get):?>
                     <tr>
                         <th><?=$sn?>.</th>
-                        <td class="supplierName"><?=$get->first_name ." ". $get->last_name?></td>
+                        <td class="supplierName"><?=$get->first_name?></td>
                         <td class="hidden firstName"><?=$get->first_name?></td>
                         <td class="hidden lastName"><?=$get->last_name?></td>
                         <td class="supplierEmail"><?=mailto($get->email)?></td>
                         <td class="supplierMobile1"><?=$get->mobile1?></td>
                         <td class="supplierMobile2"><?=$get->mobile2?></td>
-                        <td class="supplierRole"><?=ucfirst($get->role)?></td>
+                        <td class="supplierRole"><?=$get->last_name?></td>
                         <td><?=date('jS M, Y h:i:sa', strtotime($get->created_on))?></td>
-                        <td>
-                            <?=$get->last_login === "0000-00-00 00:00:00" ? "---" : date('jS M, Y h:i:sa', strtotime($get->last_login))?>
-                        </td>
                         <td class="text-center editSupplier" id="edit-<?=$get->id?>">
                             <i class="fa fa-pencil pointer"></i>
                         </td>

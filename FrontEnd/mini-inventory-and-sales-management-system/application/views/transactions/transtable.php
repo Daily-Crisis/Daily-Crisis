@@ -9,16 +9,17 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>NIT</th>
-                    <th>Código</th>
-                    <th>Total de Elementos</th>
-                    <th>Monto Total</th>
-                    <th>Monto Cancelado</th>
-                    <th>Saldo</th>
-                    <th>Modo de Pago</th>
-                    <th>Encargado</th>
-                    <th>Cliente</th>
-                    <th>Fecha</th>
+                    <th>NÚMERO</th>
+                    <th>CÓDIGO</th>
+                    <th>TOTAL ELEMENTOS</th>
+                    <th>MONTO TOTAL</th>
+                    <th>MONTO CANELADO</th>
+                    <th>SALDO</th>
+                    <th>MODO DE PAGO</th>
+                    <th>ENCARGADO</th>
+                    <th>COMICIÓN POR VENTA</th>
+                    <th>CLIENTE</th>
+                    <th>FECHA</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +33,7 @@
                     <td>Bs. <?= number_format($get->changeDue, 2) ?></td>
                     <td><?=  str_replace("_", " ", $get->modeOfPayment)?></td>
                     <td><?=$get->staffName?></td>
+                    <td>Bs. <?= number_format($get->totalMoneySpent/40, 2) ?></td>
                     <td><?=$get->cust_name?> - <?=$get->cust_phone?> - <?=$get->cust_email?></td>
                     <td><?= date('jS M, Y h:ia', strtotime($get->transDate)) ?></td>
                 </tr>

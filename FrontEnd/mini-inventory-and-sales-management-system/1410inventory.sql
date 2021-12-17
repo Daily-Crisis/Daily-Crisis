@@ -199,9 +199,9 @@ CREATE TABLE `reservations` (
                                 `cust_name` varchar(20) DEFAULT NULL,
                                 `cust_phone` varchar(15) DEFAULT NULL,
                                 `cust_email` varchar(50) DEFAULT NULL,
-                                `transType` char(1) NOT NULL,
+                                `resType` char(1) NOT NULL,
                                 `staffId` bigint(20) UNSIGNED NOT NULL,
-                                `transDate` datetime NOT NULL,
+                                `resDate` datetime NOT NULL,
                                 `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                                 `cancelled` char(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

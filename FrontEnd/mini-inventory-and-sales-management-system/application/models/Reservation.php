@@ -47,9 +47,9 @@ class Reservation extends CI_Model {
                 reservations.resDate, reservations.lastUpdated, reservations.amountTendered, reservations.changeDue,
                 CONCAT_WS(" ", admin.first_name, admin.last_name) as "staffName",
                 reservations.cust_name, reservations.cust_phone, reservations.cust_email');
-            
+
             $this->db->select_sum('reservations.quantity');
-            
+
             $this->db->join('admin', 'reservations.staffId = admin.id', 'LEFT');
             $this->db->limit($limit, $start);
             $this->db->group_by('ref');
