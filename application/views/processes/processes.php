@@ -50,25 +50,7 @@ defined('BASEPATH') OR exit('');
             </div>
             <!-- end of sort and co div-->
         </div>
-    </div><!-- grafica -->
-    <div class="col-sm-3">
-        <section class="panel form-group-sm">
-            <label class="control-label">Select Account Year:</label>
-            <select class="form-control" id="earningAndExpenseYear">
-                <?php $years = range("2016", date('Y')); ?>
-                <?php foreach($years as $y):?>
-                <option value="<?=$y?>" <?=$y == date('Y') ? 'selected' : ''?>><?=$y?></option>
-                <?php endforeach; ?>
-            </select>
-            <span id="yearAccountLoading"></span>
-        </section>
-        
-        <section class="panel">
-          <center>
-              <canvas id="paymentMethodChart" width="200" height="200"/></canvas><br>Payment Methods(%)<span id="paymentMethodYear"></span>
-          </center>
-        </section>
-    </div>
+    
     <hr>
 
     <!-- row of adding new process form and processes list table-->

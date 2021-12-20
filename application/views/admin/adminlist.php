@@ -8,10 +8,7 @@ defined('BASEPATH') OR exit('');
     <?php if($allAdministrators):?>
                     <div class="table table-responsive">
                         <table class="table table-striped table-bordered">
-                        <?php foreach($allAdministrators as $get):?>
-                            <td class="askAdmin" id="del-<?=$get->id?>">
-                                <?php if($get->deleted == "0"):?>
-                                    <thead>
+                        <thead>
                                         <tr>
                                             <th>CI</th>
                                             <th>NOMBRE</th>
@@ -26,11 +23,10 @@ defined('BASEPATH') OR exit('');
                                             <th>ELIMINAR</th>
                                         </tr>
                                     </thead>
-                                
-                            
-                         
+                        <?php foreach($allAdministrators as $get):?>
+                            <td class="askAdmin" id="del-<?=$get->id?>">
+                                <?php if($get->deleted == "0"):?>
                                     <tbody>
-                                        
                                             <tr>
                                                 <th><?=$sn?>.</th>
                                                 <td class="adminName"><?=$get->first_name ." ". $get->last_name?></td>
