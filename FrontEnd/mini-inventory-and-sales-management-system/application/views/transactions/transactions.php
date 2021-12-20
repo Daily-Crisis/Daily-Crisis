@@ -69,7 +69,7 @@ if(isset($items) && !empty($items)){
 
                                     <div class="row">
                                         <div class="col-sm-3 form-group-sm">
-                                            <label for="vat">Impuestos</label>
+                                            <label for="vat">Impuestos(%)</label>
                                             <input type="number" min="0" id="vat" class="form-control" value="0">
                                         </div>
 
@@ -79,7 +79,7 @@ if(isset($items) && !empty($items)){
                                         </div>
 
                                         <div class="col-sm-3 form-group-sm">
-                                            <label for="discount">Descuento(valor)</label>
+                                            <label for="discount">Descuento(Valor)</label>
                                             <input type="number" min="0" id="discountValue" class="form-control" value="0">
                                         </div>
 
@@ -103,7 +103,7 @@ if(isset($items) && !empty($items)){
 
                                         <div class="col-sm-4 form-group-sm">
                                             <div class="cashAndPos hidden">
-                                                <label for="cashAmount">Efectivo</label>
+                                                <label for="cashAmount"> Efectivo </label>
                                                 <input type="text" class="form-control" id="cashAmount">
                                                 <span class="help-block errMsg"></span>
                                             </div>
@@ -134,7 +134,7 @@ if(isset($items) && !empty($items)){
                                         </div>
 
                                         <div class="col-sm-4 form-group-sm">
-                                            <label for="custPhone">Teléfono del Cliente</label>
+                                            <label for="custPhone">NIT del Cliente</label>
                                             <input type="tel" id="custPhone" class="form-control" placeholder="Número de Teléfono">
                                         </div>
 
@@ -212,9 +212,15 @@ if(isset($items) && !empty($items)){
 
     <!-- transaction list table-->
     <div class="row">
-        <!-- Transaction list div-->
+        <!-- transaction list div-->
         <div class="col-sm-12" id="transListTable"></div>
         <!-- End of transactions div-->
+    </div>
+
+
+        </div>
+
+
     </div>
     <!-- End of transactions list table-->
 </div>

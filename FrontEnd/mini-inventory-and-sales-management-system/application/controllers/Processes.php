@@ -62,7 +62,7 @@ class Processes extends CI_Controller{
 
         //get all processes from db
         $data['allProcesses'] = $this->process->getAll($orderBy, $orderFormat, $start, $limit);
-        $data['range'] = $totalProcesses > 0 ? "Showing " . ($start+1) . "-" . ($start + count($data['allProcesses'])) . " of " . $totalProcesses : "";
+        $data['range'] = $totalProcesses > 0 ? "Mostrando " . ($start+1) . "-" . ($start + count($data['allProcesses'])) . " de " . $totalProcesses : "";
         $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
         $data['cum_total'] = $this->process->getProcessesCumTotal();

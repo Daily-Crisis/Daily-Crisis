@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('');
         <div class="modal-content">
             <div class='modal-header'>
                 <button class="close" data-dismiss='modal'>&times;</button>
-                <h4 class="text-center">Añadir nuevo Proveedor</h4>
+                <h4 class="text-center">Añadir Nuevo Proveedor</h4>
                 <div class="text-center">
                     <i id="fMsgIcon"></i><span id="fMsg"></span>
                 </div>
@@ -71,13 +71,13 @@ defined('BASEPATH') OR exit('');
                 <form id='addNewSupplierForm' name='addNewSupplierForm' role='form'>
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
-                            <label for='firstName' class="control-label">Primer Nombre</label>
-                            <input type="text" id='firstName' class="form-control checkField" placeholder="Primer Nombre">
+                            <label for='firstName' class="control-label">Proveedor</label>
+                            <input type="text" id='firstName' class="form-control checkField" placeholder="Nombre del Proveedor">
                             <span class="help-block errMsg" id="firstNameErr"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
-                            <label for='lastName' class="control-label">Empresa</label>
-                            <input type="text" id='lastName' class="form-control checkField" placeholder="Empresa">
+                            <label for='lastName' class="control-label">Insumo que Provee</label>
+                            <input type="text" id='lastName' class="form-control checkField" placeholder="Nombre Insumo">
                             <span class="help-block errMsg" id="lastNameErr"></span>
                         </div>
                     </div>
@@ -85,16 +85,16 @@ defined('BASEPATH') OR exit('');
                     
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
-                            <label for='email' class="control-label">Correo</label>
-                            <input type="email" id='email' class="form-control checkField" placeholder="Correo">
+                            <label for='email' class="control-label">Correo Electrónico</label>
+                            <input type="email" id='email' class="form-control checkField" placeholder="Correo Electrónico">
                             <span class="help-block errMsg" id="emailErr"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
                             <label for='role' class="control-label">Tipo</label>
                             <select class="form-control checkField" id='role'>
                                 <option value=''>Tipo</option>
-                                <option value='Super'>Independiente</option>
-                                <option value='Basic'>Empresa</option>
+                                <option value='Independiente'>Independiente</option>
+                                <option value='Empresa'>Empresa</option>
                                 <!-- <option value='Basic'>Proveedor</option> -->
                             </select>
                             <span class="help-block errMsg" id="roleErr"></span>
@@ -103,26 +103,26 @@ defined('BASEPATH') OR exit('');
                     
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
-                            <label for='mobile1' class="control-label">Número de teléfono</label>
-                            <input type="tel" id='mobile1' class="form-control checkField" placeholder="Número de teléfono">
+                            <label for='mobile1' class="control-label">Número de Teléfono</label>
+                            <input type="tel" id='mobile1' class="form-control checkField" placeholder="Número de Teléfono">
                             <span class="help-block errMsg" id="mobile1Err"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
-                            <label for='mobile2' class="control-label">Número Empresa</label>
-                            <input type="tel" id='mobile2' class="form-control" placeholder="Número Empresa">
+                            <label for='mobile2' class="control-label">Número de Teléfono 2</label>
+                            <input type="tel" id='mobile2' class="form-control" placeholder="Número de Teléfono (Opcional)">
                             <span class="help-block errMsg" id="mobile2Err"></span>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
-                            <label for="passwordOrig" class="control-label">Contraseña:</label>
+                            <label for="passwordOrig" class="control-label">Contraseña</label>
                             <input type="password" class="form-control checkField" id="passwordOrig" placeholder="Contraseña">
                             <span class="help-block errMsg" id="passwordOrigErr"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
-                            <label for="passwordDup" class="control-label">Vuelva a ingresar la contraseña:</label>
-                            <input type="password" class="form-control checkField" id="passwordDup" placeholder="Vuelva a ingresar la contraseña">
+                            <label for="passwordDup" class="control-label">Vuelva a ingresar la contraseña</label>
+                            <input type="password" class="form-control checkField" id="passwordDup" placeholder="Contraseña">
                             <span class="help-block errMsg" id="passwordDupErr"></span>
                         </div>
                     </div>
@@ -155,29 +155,29 @@ defined('BASEPATH') OR exit('');
                 <form id='editSupplierForm' name='editSupplierForm' role='form'>
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
-                            <label for='firstNameEdit' class="control-label">Primer nombre</label>
-                            <input type="text" id='firstNameEdit' class="form-control checkField" placeholder="Nombre">
+                            <label for='firstNameEdit' class="control-label">Proveedor</label>
+                            <input type="text" id='firstNameEdit' class="form-control checkField" placeholder="Nombre del Proveedor">
                             <span class="help-block errMsg" id="firstNameEditErr"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
-                            <label for='lastNameEdit' class="control-label">Empresa</label>
-                            <input type="text" id='lastNameEdit' class="form-control checkField" placeholder="Empresa">
+                            <label for='lastNameEdit' class="control-label">Insumo que Provee</label>
+                            <input type="text" id='lastNameEdit' class="form-control checkField" placeholder="Nombre Insumo">
                             <span class="help-block errMsg" id="lastNameEditErr"></span>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
-                            <label for='emailEdit' class="control-label">Correo</label>
-                            <input type="email" id='emailEdit' class="form-control checkField" placeholder="Email">
+                            <label for='emailEdit' class="control-label">Correo Electrónico</label>
+                            <input type="email" id='emailEdit' class="form-control checkField" placeholder="Correo Electrónico">
                             <span class="help-block errMsg" id="emailEditErr"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
                             <label for='roleEdit' class="control-label">Tipo</label>
                             <select class="form-control checkField" id='roleEdit'>
                                 <option value=''>Tipo</option>
-                                <option value='Super'>Independiente</option>
-                                <option value='Basic'>Empresa</option>
+                                <option value='Independiente'>Independiente</option>
+                                <option value='Empresa'>Empresa</option>
                             </select>
                             <span class="help-block errMsg" id="roleEditErr"></span>
                         </div>
@@ -186,12 +186,12 @@ defined('BASEPATH') OR exit('');
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
                             <label for='mobile1Edit' class="control-label">Número de teléfono</label>
-                            <input type="tel" id='mobile1Edit' class="form-control checkField" placeholder="Número de teléfono">
+                            <input type="tel" id='mobile1Edit' class="form-control checkField" placeholder="Número de Teléfono">
                             <span class="help-block errMsg" id="mobile1EditErr"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
-                            <label for='mobile2Edit' class="control-label">Número Empresa</label>
-                            <input type="tel" id='mobile2Edit' class="form-control" placeholder="Número Empresa">
+                            <label for='mobile2Edit' class="control-label">Número de Teléfono 2 </label>
+                            <input type="tel" id='mobile2Edit' class="form-control" placeholder="Número de Teléfono (Opcional)">
                             <span class="help-block errMsg" id="mobile2EditErr"></span>
                         </div>
                     </div>

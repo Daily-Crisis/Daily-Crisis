@@ -69,7 +69,7 @@ function getEarnings(year){
         };
 
         //show the expense title
-        document.getElementById('earningsTitle').innerHTML = "Earnings (" + response.earningsYear +")";
+        document.getElementById('earningsTitle').innerHTML = "Ganancias Año (" + response.earningsYear +")";
 
         var earningsGraph = document.getElementById("earningsGraph").getContext("2d");
 

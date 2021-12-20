@@ -330,7 +330,8 @@ $(document).ready(function(){
     //When the trash icon in front of an supplier account is clicked on the supplier list table (i.e. to delete the account)
     $("#allSupplier").on('click', '.deleteSupplier', function(){
         var confirm = window.confirm("Proceed?");
-        
+        var suppRow = $(this).closest('tr')
+
         if(confirm){
             var ElemId = $(this).attr('id');
 
@@ -346,12 +347,13 @@ $(document).ready(function(){
                     data: {_aId:supplierId}
                 }).done(function(returnedData){
                     if(returnedData.status === 1){
-                       
+                        $(suppRow).remove();
                         //change the icon to "undo delete" if it's "active" before the change and vice-versa
                         var newHTML = returnedData._nv === 1 ? "<a class='pointer'>Undo Delete</a>" : "<i class='fa fa-trash pointer'></i>";
-
+                        resetSuppSN();
                         //change the icon
                         $("#del-"+returnedData._aId).html(newHTML);
+                        changeFlashMsgContent('Supplier deleted', '', 'green', 1000);
 
                     }
 
@@ -432,6 +434,11 @@ function lasp_(url){
         });
 }
 
+function resetSuppSN(){
+    $(".suppSN").each(function(i){
+        $(this).html(parseInt(i)+1);
+    });
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

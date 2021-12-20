@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('');
         <div class="modal-content">
             <div class='modal-header'>
                 <button class="close" data-dismiss='modal'>&times;</button>
-                <h4 class="text-center">Añadir nuevo administrador</h4>
+                <h4 class="text-center">Añadir Nuevo Administrador</h4>
                 <div class="text-center">
                     <i id="fMsgIcon"></i><span id="fMsg"></span>
                 </div>
@@ -85,8 +85,8 @@ defined('BASEPATH') OR exit('');
                     
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
-                            <label for='email' class="control-label">Correo</label>
-                            <input type="email" id='email' class="form-control checkField" placeholder="Correo">
+                            <label for='email' class="control-label">Correo Electrónico</label>
+                            <input type="email" id='email' class="form-control checkField" placeholder="Correo Electrónico">
                             <span class="help-block errMsg" id="emailErr"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
@@ -94,7 +94,7 @@ defined('BASEPATH') OR exit('');
                             <select class="form-control checkField" id='role'>
                                 <option value=''>Puesto</option>
                                 <option value='Super'>Administrador</option>
-                                <option value='Basic'>Empleado</option>
+                                <option value='Empleado'>Empleado</option>
                             </select>
                             <span class="help-block errMsg" id="roleErr"></span>
                         </div>
@@ -107,8 +107,8 @@ defined('BASEPATH') OR exit('');
                             <span class="help-block errMsg" id="mobile1Err"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
-                            <label for='mobile2' class="control-label">Otro teléfono</label>
-                            <input type="tel" id='mobile2' class="form-control" placeholder="Otro teléfono(Opcional)">
+                            <label for='mobile2' class="control-label">Número de teléfono 2</label>
+                            <input type="tel" id='mobile2' class="form-control" placeholder="Número teléfono 2 (Opcional)">
                             <span class="help-block errMsg" id="mobile2Err"></span>
                         </div>
                     </div>
@@ -121,7 +121,7 @@ defined('BASEPATH') OR exit('');
                         </div>
                         <div class="form-group-sm col-sm-6">
                             <label for="passwordDup" class="control-label">Vuelva a ingresar la contraseña:</label>
-                            <input type="password" class="form-control checkField" id="passwordDup" placeholder="Vuelva a ingresar la contraseña">
+                            <input type="password" class="form-control checkField" id="passwordDup" placeholder="Contraseña">
                             <span class="help-block errMsg" id="passwordDupErr"></span>
                         </div>
                     </div>
@@ -155,20 +155,20 @@ defined('BASEPATH') OR exit('');
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
                             <label for='firstNameEdit' class="control-label">Primer nombre</label>
-                            <input type="text" id='firstNameEdit' class="form-control checkField" placeholder="First Name">
+                            <input type="text" id='firstNameEdit' class="form-control checkField" placeholder="Nombre">
                             <span class="help-block errMsg" id="firstNameEditErr"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
                             <label for='lastNameEdit' class="control-label">Apellido</label>
-                            <input type="text" id='lastNameEdit' class="form-control checkField" placeholder="Last Name">
+                            <input type="text" id='lastNameEdit' class="form-control checkField" placeholder="Apellido">
                             <span class="help-block errMsg" id="lastNameEditErr"></span>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
-                            <label for='emailEdit' class="control-label">Correo</label>
-                            <input type="email" id='emailEdit' class="form-control checkField" placeholder="Email">
+                            <label for='emailEdit' class="control-label">Correo Electrónico</label>
+                            <input type="email" id='emailEdit' class="form-control checkField" placeholder="Correo Electrónico">
                             <span class="help-block errMsg" id="emailEditErr"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
@@ -176,7 +176,7 @@ defined('BASEPATH') OR exit('');
                             <select class="form-control checkField" id='roleEdit'>
                                 <option value=''>Puesto</option>
                                 <option value='Super'>Administrador</option>
-                                <option value='Basic'>Empleado</option>
+                                <option value='Empleado'>Empleado</option>
                             </select>
                             <span class="help-block errMsg" id="roleEditErr"></span>
                         </div>
@@ -184,13 +184,13 @@ defined('BASEPATH') OR exit('');
                     
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
-                            <label for='mobile1Edit' class="control-label">Número de teléfono</label>
-                            <input type="tel" id='mobile1Edit' class="form-control checkField" placeholder="Phone Number">
+                            <label for='mobile1Edit' class="control-label">Número de Teléfono</label>
+                            <input type="tel" id='mobile1Edit' class="form-control checkField" placeholder="Número de Teléfono">
                             <span class="help-block errMsg" id="mobile1EditErr"></span>
                         </div>
                         <div class="form-group-sm col-sm-6">
-                            <label for='mobile2Edit' class="control-label">Apellido</label>
-                            <input type="tel" id='mobile2Edit' class="form-control" placeholder="Other Number (optional)">
+                            <label for='mobile2Edit' class="control-label">Número de Teléfono 2</label>
+                            <input type="tel" id='mobile2Edit' class="form-control" placeholder="Número de Teléfono (Opcional)">
                             <span class="help-block errMsg" id="mobile2EditErr"></span>
                         </div>
                     </div>

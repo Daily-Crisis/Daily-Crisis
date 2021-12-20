@@ -9,7 +9,7 @@
 <div class='col-xs-12'>
     <div class="panel panel-primary">
         <!-- Default panel contents -->
-        <div class="panel-heading">Procesos</div>
+        <div class="panel-heading">PROCESOS</div>
         <?php if($allProcesses): ?>
             <div class="table table-responsive">
                 <table class="table table-bordered table-striped" style="background-color: #f5f5f5">
@@ -21,8 +21,6 @@
                         <th>DESCRIPCIÓN</th>
                         <th>LOTES TRAB.</th>
                         <th>PRECIO POR LOTE</th>
-                        <th>EDITAR</th>
-                        <th>ELIMINAR</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,11 +39,8 @@
                                 <span id="itemQuantity-<?=$get->id?>"><?=$get->quantity?></span>
                             </td>
                             <td>Bs. <span id="itemPrice-<?=$get->id?>"><?=number_format($get->unitPrice, 2)?></span></td>
-                            <td class="text-center text-primary">
-                                <span class="editItem" id="edit-<?=$get->id?>"><i class="fa fa-pencil pointer"></i> </span>
-                            </td>
-                            <td class="text-center"><i class="fa fa-trash text-danger delItem pointer"></i></td>
-                        </tr>
+
+                            </tr>
                         <?php $sn++; ?>
                     <?php endforeach; ?>
                     </tbody>

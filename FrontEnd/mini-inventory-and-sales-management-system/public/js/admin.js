@@ -328,9 +328,10 @@ $(document).ready(function(){
     
     
     //When the trash icon in front of an admin account is clicked on the admin list table (i.e. to delete the account)
-    $("#allAdmin").on('click', '.deleteAdmin', function(){
+    $("#allAdmin").on('click', '.deleteAdmin', function(e){
         var confirm = window.confirm("Proceed?");
-        
+        var adminRow = $(this).closest('tr')
+
         if(confirm){
             var ElemId = $(this).attr('id');
 
@@ -346,13 +347,14 @@ $(document).ready(function(){
                     data: {_aId:adminId}
                 }).done(function(returnedData){
                     if(returnedData.status === 1){
-                       
+                        $(adminRow).remove();
                         //change the icon to "undo delete" if it's "active" before the change and vice-versa
                         var newHTML = returnedData._nv === 1 ? "<a class='pointer'>Undo Delete</a>" : "<i class='fa fa-trash pointer'></i>";
-
+                        resetAdminSN();
                         //change the icon
                         $("#del-"+returnedData._aId).html(newHTML);
 
+                        changeFlashMsgContent('User deleted', '', 'green', 1000);
                     }
 
                     else{
@@ -362,6 +364,10 @@ $(document).ready(function(){
             }
         }
     });
+
+
+
+
     
     
     /*
@@ -430,6 +436,12 @@ function laad_(url){
 			
             $("#allAdmin").html(returnedData.adminTable);
         });
+}
+
+function resetAdminSN(){
+    $(".adminSN").each(function(i){
+        $(this).html(parseInt(i)+1);
+    });
 }
 
 

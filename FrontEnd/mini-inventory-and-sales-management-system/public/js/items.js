@@ -437,6 +437,17 @@ $(document).ready(function(){
             }
         }
     });
+
+    $("#clickToGen").click(function(e){
+        e.preventDefault();
+
+
+        var strWindowFeatures = "width=1000,height=500,scrollbars=yes,resizable=yes";
+
+        window.open(appRoot+"items/report/", 'Print', strWindowFeatures);
+    });
+
+
 });
 
 

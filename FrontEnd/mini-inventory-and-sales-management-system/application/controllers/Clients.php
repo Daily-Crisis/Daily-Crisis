@@ -66,7 +66,7 @@ class Clients extends CI_Controller{
         
         //get all customers from db
         $data['allClients'] = $this->client->getAll($orderBy, $orderFormat, $start, $limit);
-        $data['range'] = $totalClients > 0 ? ($start+1) . "-" . ($start + count($data['allClients'])) . " of " . $totalClients : "";
+        $data['range'] = $totalClients > 0 ? ($start+1) . "-" . ($start + count($data['allClients'])) . " de " . $totalClients : "";
         $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
         
@@ -100,9 +100,9 @@ class Clients extends CI_Controller{
         $this->form_validation->set_rules('email', 'E-mail', ['trim', 'required', 'valid_email', 'is_unique[client.email]', 'strtolower'],
                 ['required'=>"required", 'is_unique'=>'E-mail exists']);
         $this->form_validation->set_rules('role', 'Role', ['required'], ['required'=>"required"]);
-        $this->form_validation->set_rules('mobile1', 'Phone number', ['required', 'trim', 'numeric', 'max_length[15]', 'min_length[11]', 'is_unique[client.mobile1]'],
+        $this->form_validation->set_rules('mobile1', 'Phone number', ['required', 'trim', 'numeric', 'max_length[15]', 'min_length[7]', 'is_unique[client.mobile1]'],
                 ['required'=>"required", 'is_unique'=>"This number is already attached to an client"]);
-        $this->form_validation->set_rules('mobile2', 'Other number', ['trim', 'numeric', 'max_length[15]', 'min_length[11]']);
+        $this->form_validation->set_rules('mobile2', 'Other number', ['trim', 'numeric', 'max_length[15]', 'min_length[7]']);
         $this->form_validation->set_rules('passwordOrig', 'Password', ['required', 'min_length[8]'], ['required'=>"Enter password"]);
         $this->form_validation->set_rules('passwordDup', 'Password Confirmation', ['required', 'matches[passwordOrig]'], ['required'=>"Please retype password"]);
         

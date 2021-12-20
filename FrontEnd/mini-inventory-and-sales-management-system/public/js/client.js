@@ -330,7 +330,8 @@ $(document).ready(function(){
     //When the trash icon in front of an client account is clicked on the client list table (i.e. to delete the account)
     $("#allClient").on('click', '.deleteClient', function(){
         var confirm = window.confirm("Proceed?");
-        
+        var clientRow = $(this).closest('tr')
+
         if(confirm){
             var ElemId = $(this).attr('id');
 
@@ -346,12 +347,13 @@ $(document).ready(function(){
                     data: {_aId:clientId}
                 }).done(function(returnedData){
                     if(returnedData.status === 1){
-                       
+                        $(clientRow).remove();
                         //change the icon to "undo delete" if it's "active" before the change and vice-versa
                         var newHTML = returnedData._nv === 1 ? "<a class='pointer'>Undo Delete</a>" : "<i class='fa fa-trash pointer'></i>";
-
+                        resetClientSN();
                         //change the icon
                         $("#del-"+returnedData._aId).html(newHTML);
+                        changeFlashMsgContent('Client deleted', '', 'green', 1000);
 
                     }
 
@@ -430,6 +432,12 @@ function lacl_(url){
 			
             $("#allClient").html(returnedData.clientTable);
         });
+}
+
+function resetClientSN(){
+    $(".clientSN").each(function(i){
+        $(this).html(parseInt(i)+1);
+    });
 }
 
 
