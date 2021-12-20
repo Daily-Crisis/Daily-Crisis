@@ -227,6 +227,7 @@ defined('BASEPATH') OR exit('');
     </div>
     
     
+    
     <div class="col-sm-6">
         <div class="panel panel-hash">
             <div class="panel-heading">Transactions by Days</div>
@@ -332,5 +333,27 @@ defined('BASEPATH') OR exit('');
     </div>
 </div>
 -->
+
+</div><!-- grafica -->
+    <!-- <div class="col-sm-3">
+        <section class="panel form-group-sm">
+            <label class="control-label">Select Account Year:</label>
+            <select class="form-control" id="earningAndExpenseYear">
+                <?php $years = range("2016", date('Y')); ?>
+                <?php foreach($years as $y):?>
+                <option value="<?=$y?>" <?=$y == date('Y') ? 'selected' : ''?>><?=$y?></option>
+                <?php endforeach; ?>
+            </select>
+            <span id="yearAccountLoading"></span>
+        </section>
+         -->
+        <section class="panel">
+          <center>
+              <canvas id="paymentMethodChart" width="200" height="200"/></canvas><br>Payment Methods(%)<span id="paymentMethodYear"></span>
+          </center>
+        </section>
+    </div> 
+
+
 <script src="<?=base_url('public/js/chart.js'); ?>"></script>
 <script src="<?=base_url('public/js/dashboard.js')?>"></script>
