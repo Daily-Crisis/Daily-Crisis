@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('');
+defined('BASEPATH') or exit('');
 ?>
 
 <div class="row">
