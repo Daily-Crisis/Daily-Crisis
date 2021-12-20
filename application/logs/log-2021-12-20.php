@@ -121,3 +121,5 @@ ERROR - 2021-12-20 02:04:01 --> Severity: Warning --> Undefined property: Reserv
 ERROR - 2021-12-20 02:04:01 --> Severity: error --> Exception: Call to a member function totalReservations() on null C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Reservations.php 53
 ERROR - 2021-12-20 02:04:01 --> Severity: Warning --> Undefined property: Reservations::$reservations C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Reservations.php 53
 ERROR - 2021-12-20 02:04:01 --> Severity: error --> Exception: Call to a member function totalReservations() on null C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Reservations.php 53
+ERROR - 2021-12-20 02:37:18 --> Severity: Warning --> Undefined property: Reservations::$reservations C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Reservations.php 53
+ERROR - 2021-12-20 02:37:18 --> Severity: error --> Exception: Call to a member function totalReservations() on null C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Reservations.php 53
