@@ -1,6 +1,17 @@
 on: push
 name: CI
 jobs:
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Descargar codigo
+        uses: actions/checkout@v2
+      - name: Correr Unit Test
+        run: |
+          cd FrontEnd/mini-inventory-and-sales-management-system
+          ./vendor/bin/phpunit --testdox 
+          
   phpunit:
     runs-on: ubuntu-latest
     container:
@@ -25,16 +36,7 @@ jobs:
       run: |
         cd FrontEnd/mini-inventory-and-sales-management-system
         composer install --prefer-dist
-  test:
-    name: Unit Tests
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Descargar codigo
-        uses: actions/checkout@v2
-      - name: Correr Unit Test
-        run: |
-          cd FrontEnd/mini-inventory-and-sales-management-system
-          ./vendor/bin/phpunit --testdox 
+
   build:
     runs-on: ubuntu-latest
     steps:
