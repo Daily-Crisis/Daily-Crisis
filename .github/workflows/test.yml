@@ -28,7 +28,7 @@ jobs:
  
     - name: Prepare Laravel Application
       run: |
-        cd FrontEnd/mini-inventory-and-sales-management-system/emavra
+        cd FrontEnd/mini-inventory-and-sales-management-system
         cp .env.ci .env
         php artisan key:generate
  
