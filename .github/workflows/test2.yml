@@ -8,7 +8,9 @@ jobs:
       - name: Descargar codigo
         uses: actions/checkout@v2
       - name: Correr Unit Test
-        run: ./vendor/bin/phpunit --testdox 
+        run: |
+          cd FrontEnd/mini-inventory-and-sales-management-system
+          ./vendor/bin/phpunit --testdox 
         
   phpunit:
     runs-on: ubuntu-latest
