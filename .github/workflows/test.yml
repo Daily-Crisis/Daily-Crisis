@@ -25,12 +25,6 @@ jobs:
       run: |
         cd FrontEnd/mini-inventory-and-sales-management-system
         composer install --prefer-dist
-        
-    - name: Prepare Laravel Application
-      run: |
-        cd FrontEnd/mini-inventory-and-sales-management-system/emavra
-        cp .env.ci .env
-        php artisan key:generate
  
     - name: Run Testsuite
-      run: vendor/bin/phpunit tests/
+      run: .vendor/bin/phpunit --testdox
