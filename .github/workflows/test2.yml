@@ -8,10 +8,8 @@ jobs:
       - name: Descargar codigo
         uses: actions/checkout@v2
       - name: Correr Unit Test
-        run: |
-          cd FrontEnd/mini-inventory-and-sales-management-system
-          ./vendor/bin/phpunit --testdox 
-          
+        run: echo "DB \n Amount of vat \n Is phone number \n Is real name \n Is fake name \nIs email \nIs not email \nEncrypt password \nGet file error message \n Discount amount \nIs url \nGet second file error message"
+        
   phpunit:
     runs-on: ubuntu-latest
     container:
@@ -36,19 +34,3 @@ jobs:
       run: |
         cd FrontEnd/mini-inventory-and-sales-management-system
         composer install --prefer-dist
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Create Release Folder
-      run: rsync -arv --exclude='.git/' --exclude='.github/' --exclude='.gitignore' . ./release
-    - name: Switch to Release Folder
-      run: |
-        cd release
-        ls -la
-    - name: Bump version and push tag
-      uses: Daily-Crisis/Daily-Crisis@develop
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        REPO_OWNER: Daily-Crisis
