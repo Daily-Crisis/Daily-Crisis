@@ -8,7 +8,7 @@ jobs:
       - name: Descargar codigo
         uses: actions/checkout@v2
       - name: Correr Unit Test
-        run: gradle test
+        run: ./vendor/bin/phpunit --testdox 
         
   phpunit:
     runs-on: ubuntu-latest
