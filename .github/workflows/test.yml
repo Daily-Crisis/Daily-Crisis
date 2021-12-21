@@ -29,4 +29,5 @@ jobs:
     - name: Run Testsuite
       run: |
          cd FrontEnd/mini-inventory-and-sales-management-system
-         vendor/bin/phpunit --testdox
+         ./vendor/bin/phpunit --testdox
+
