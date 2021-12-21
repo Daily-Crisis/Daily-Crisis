@@ -25,7 +25,9 @@ jobs:
       run: |
         cd FrontEnd/mini-inventory-and-sales-management-system
         composer install --prefer-dist
- 
+        
+    - name: Change wrapper permissions
+      run: chmod +x ./gradlew
  
     - name: Run Testsuite
       run: FrontEnd/mini-inventory-and-sales-management-system/vendor/bin/phpunit tests/
