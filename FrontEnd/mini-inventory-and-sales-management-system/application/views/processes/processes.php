@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('');
             <div class="row">
                 <div class="col-sm-12">
                     <div class="col-sm-2 form-inline form-group-sm">
-                        <button class="btn btn-primary btn-sm" id='createProcess'>Añadir nuevo elemento</button>
+                        <button class="btn btn-primary btn-sm" id='createProcess'>Añadir Nuevo Proceso</button>
                     </div>
 
                     <div class="col-sm-3 form-inline form-group-sm">
@@ -31,20 +31,20 @@ defined('BASEPATH') OR exit('');
                     <div class="col-sm-4 form-group-sm form-inline">
                         <label for="processesListSortBy">Ordenar por</label>
                         <select id="processesListSortBy" class="form-control">
-                            <option value="name-ASC">Nombre del elemento (A-Z)</option>
-                            <option value="code-ASC">Código del elemento (Ascendente)</option>
-                            <option value="unitPrice-DESC">Precio unitario (El mas alto primero)</option>
-                            <option value="quantity-DESC">Cantidad (El mas alto primero)</option>
-                            <option value="name-DESC">Nombre del elemento (Z-A)</option>
-                            <option value="code-DESC">Código del elemento (Descendente)</option>
-                            <option value="unitPrice-ASC">Precio unitario (El mas bajo primero)</option>
+                            <option value="name-ASC">Nombre del proceso (A-Z)</option>
+                            <option value="code-ASC">Código del proceso (Ascendente)</option>
+                            <option value="unitPrice-DESC">Precio por lote (El más alto primero)</option>
+                            <option value="quantity-DESC">Cantidad (El más alto primero)</option>
+                            <option value="name-DESC">Nombre del proceso (Z-A)</option>
+                            <option value="code-DESC">Código del proceso (Descendente)</option>
+                            <option value="unitPrice-ASC">Precio por lote (El mas bajo primero)</option>
                             <option value="quantity-ASC">Cantidad (El mas bajo primero)</option>
                         </select>
                     </div>
 
                     <div class="col-sm-3 form-inline form-group-sm">
                         <label for='processSearch'><i class="fa fa-search"></i></label>
-                        <input type="search" id="processSearch" class="form-control" placeholder="Buscar elementos">
+                        <input type="search" id="processSearch" class="form-control" placeholder="Buscar procesos">
                     </div>
                 </div>
             </div>
@@ -60,7 +60,6 @@ defined('BASEPATH') OR exit('');
             <!--Form to add/update an process-->
             <div class="col-sm-4 hidden" id='createNewProcessDiv'>
                 <div class="well">
-                    <button class="btn btn-info btn-xs pull-left" id="useBarcodeScanner">Usar escáner</button>
                     <button class="close cancelAddProcess">&times;</button><br>
                     <form name="addNewProcessForm" id="addNewProcessForm" role="form">
                         <div class="text-center errMsg" id='addCustErrMsg'></div>
@@ -69,8 +68,8 @@ defined('BASEPATH') OR exit('');
 
                         <div class="row">
                             <div class="col-sm-12 form-group-sm">
-                                <label for="processCode">Código del elemento</label>
-                                <input type="text" id="processCode" name="processCode" placeholder="Código del elemento" maxlength="80"
+                                <label for="processCode">Código del Proceso</label>
+                                <input type="text" id="processCode" name="processCode" placeholder="Código del proceso" maxlength="80"
                                        class="form-control" onchange="checkField(this.value, 'processCodeErr')" autofocus>
                                 <!--<span class="help-block"><input type="checkbox" id="gen4me"> auto-generate</span>-->
                                 <span class="help-block errMsg" id="processCodeErr"></span>
@@ -79,8 +78,8 @@ defined('BASEPATH') OR exit('');
 
                         <div class="row">
                             <div class="col-sm-12 form-group-sm">
-                                <label for="processName">Nombre del elemento</label>
-                                <input type="text" id="processName" name="processName" placeholder="Nombre del elemento" maxlength="80"
+                                <label for="processName">Tipo de Proceso</label>
+                                <input type="text" id="processName" name="processName" placeholder="Tipo del proceso" maxlength="80"
                                        class="form-control" onchange="checkField(this.value, 'processNameErr')">
                                 <span class="help-block errMsg" id="processNameErr"></span>
                             </div>
@@ -88,7 +87,7 @@ defined('BASEPATH') OR exit('');
 
                         <div class="row">
                             <div class="col-sm-12 form-group-sm">
-                                <label for="processQuantity">Cantidad</label>
+                                <label for="processQuantity">Cantidad de Lotes Trabajadas</label>
                                 <input type="number" id="processQuantity" name="processQuantity" placeholder="Cantidad"
                                        class="form-control" min="0" onchange="checkField(this.value, 'processQuantityErr')">
                                 <span class="help-block errMsg" id="processQuantityErr"></span>
@@ -97,8 +96,8 @@ defined('BASEPATH') OR exit('');
 
                         <div class="row">
                             <div class="col-sm-12 form-group-sm">
-                                <label for="unitPrice">Bs. Precio unitario</label>
-                                <input type="text" id="processPrice" name="processPrice" placeholder="Precio unitario" class="form-control"
+                                <label for="unitPrice">Bs. Precio por Lote</label>
+                                <input type="text" id="processPrice" name="processPrice" placeholder="Precio por Lote" class="form-control"
                                        onchange="checkField(this.value, 'processPriceErr')">
                                 <span class="help-block errMsg" id="processPriceErr"></span>
                             </div>
@@ -106,15 +105,18 @@ defined('BASEPATH') OR exit('');
 
                         <div class="row">
                             <div class="col-sm-12 form-group-sm">
-                                <label for="processDescription" class="">Descrición (Opcional)</label>
-                                <textarea class="form-control" id="processDescription" name="processDescription" rows='4'
-                                          placeholder="Descrición"></textarea>
+                                <label for="processDescription" class="">Descrición</label>
+                                <select class="form-control checkField" id="processDescription">
+                                     <option value="">---</option>
+                                     <option value="Abonado">Abonado</option>
+                                     <option value="Siembra">Siembra</option>
+                                </select>
                             </div>
                         </div>
                         <br>
                         <div class="row text-center">
                             <div class="col-sm-6 form-group-sm">
-                                <button class="btn btn-primary btn-sm" id="addNewProcess">Añadir elemento</button>
+                                <button class="btn btn-primary btn-sm" id="addNewProcess">Añadir Proceso</button>
                             </div>
 
                             <div class="col-sm-6 form-group-sm">
@@ -126,7 +128,7 @@ defined('BASEPATH') OR exit('');
             </div>
 
             <!--- Process list div-->
-            <div class="col-sm-12" id="processEsListDiv">
+            <div class="col-sm-12" id="processesListDiv">
                 <!-- Process list Table-->
                 <div class="row">
                     <div class="col-sm-12" id="processesListTable"></div>
@@ -153,24 +155,24 @@ defined('BASEPATH') OR exit('');
                 <form name="updateStockForm" id="updateStockForm" role="form">
                     <div class="row">
                         <div class="col-sm-4 form-group-sm">
-                            <label>Nombre del elemento</label>
+                            <label>Tipo del Proceso</label>
                             <input type="text" readonly id="stockUpdateProcessName" class="form-control">
                         </div>
 
                         <div class="col-sm-4 form-group-sm">
-                            <label>Código del elemento</label>
+                            <label>Código del Proceso</label>
                             <input type="text" readonly id="stockUpdateProcessCode" class="form-control">
                         </div>
 
                         <div class="col-sm-4 form-group-sm">
-                            <label>Cantidad en Stock</label>
+                            <label>Cantidad de Áreas</label>
                             <input type="text" readonly id="stockUpdateProcessQInStock" class="form-control">
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-sm-6 form-group-sm">
-                            <label for="stockUpdateType">Actualizar tipo</label>
+                            <label for="stockUpdateType">Actualizar Tipo</label>
                             <select id="stockUpdateType" class="form-control checkField">
                                 <option value="">---</option>
                                 <option value="newStock">Nuevo Stock</option>
@@ -215,27 +217,27 @@ defined('BASEPATH') OR exit('');
         <div class="modal-content">
             <div class="modal-header">
                 <button class="close" data-dismiss="modal">&times;</button>
-                <h4 class="text-center">Editar elemento</h4>
+                <h4 class="text-center">Editar proceso</h4>
                 <div id="editProcessFMsg" class="text-center"></div>
             </div>
             <div class="modal-body">
                 <form role="form">
                     <div class="row">
                         <div class="col-sm-4 form-group-sm">
-                            <label for="processNameEdit">Nombre del elemento</label>
+                            <label for="processNameEdit">Tipo del Proceso</label>
                             <input type="text" id="processNameEdit" placeholder="Process Name" autofocus class="form-control checkField">
                             <span class="help-block errMsg" id="processNameEditErr"></span>
                         </div>
 
                         <div class="col-sm-4 form-group-sm">
-                            <label for="processCode">Código del elemento</label>
+                            <label for="processCode">Código del proceso</label>
                             <input type="text" id="processCodeEdit" class="form-control">
                             <span class="help-block errMsg" id="processCodeEditErr"></span>
                         </div>
 
                         <div class="col-sm-4 form-group-sm">
-                            <label for="unitPrice">Precio unitario</label>
-                            <input type="text" id="processPriceEdit" name="processPrice" placeholder="Precio unitario" class="form-control checkField">
+                            <label for="unitPrice">Precio por Lote</label>
+                            <input type="text" id="processPriceEdit" name="processPrice" placeholder="Precio por lote" class="form-control checkField">
                             <span class="help-block errMsg" id="processPriceEditErr"></span>
                         </div>
                     </div>

@@ -11,6 +11,8 @@ $total_earned = 0;
 ?>
 <!DOCTYPE HTML>
 <html>
+
+
     <head>
         <title>Reporte de Transacciones</title>
 		
@@ -30,8 +32,46 @@ $total_earned = 0;
         
         <!-- custom CSS -->
         <link rel="stylesheet" href="<?= base_url() ?>public/css/main.css">
+         <meta charset="utf-8" />
+            <title>jQuery Shield UI Demos</title>
+            <link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+            <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.11.1.min.js"></script>
+            <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
     </head>
-
+<body class="theme-light">
+    <div id="chart"></div>
+    <script type="text/javascript">
+        $(function () {
+            $("#chart").shieldChart({
+                theme: "light",
+                exportOptions: {
+                    image: true,
+                    print: true
+                },
+                primaryHeader: {
+                    text: "Método de Pago Más Usado"
+                },
+                chartLegend: {
+                    enabled: true
+                },
+                seriesSettings: {
+                    pie: {
+                        enablePointSelection: true
+                    }
+                },
+                dataSeries: [{
+                    seriesType: "pie",
+                    collectionAlias: "Usage",
+                    data: [
+                        ["Efectivo y Tarjeta", 10.0],
+                        { collectionAlias: "Tarjeta(POS)", y: 70.0, selected: true },
+                        ["Efectivo", 20.0]
+                    ]
+                }]
+            });
+        });
+    </script>
+</body>
     <body>
         <div class="container margin-top-5">
             <div class="row">
@@ -105,7 +145,7 @@ $total_earned = 0;
                 </div>
                 
                 <div class="col-xs-6 text-right">
-                    <h4>Total Recaudado: &#8369;<?=number_format($total_earned, 2)?></h4>
+                    <h4>Total Recaudado: Bs. <?=number_format($total_earned, 2)?></h4>
                 </div>
             </div>
         </div>

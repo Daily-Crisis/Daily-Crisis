@@ -11,7 +11,6 @@ defined('BASEPATH') OR exit('');
                     <div class="col-sm-2 form-inline form-group-sm">
                         <button class="btn btn-primary btn-sm" id='createItem'>Añadir nuevo elemento</button>
                     </div>
-
                     <div class="col-sm-3 form-inline form-group-sm">
                         <label for="itemsListPerPage">Mostrar</label>
                         <select id="itemsListPerPage" class="form-control">
@@ -26,6 +25,8 @@ defined('BASEPATH') OR exit('');
                             <option value="100">100</option>
                         </select>
                         <label>por hoja</label>
+                        <br><br><br>
+
                     </div>
 
                     <div class="col-sm-4 form-group-sm form-inline">
@@ -60,7 +61,6 @@ defined('BASEPATH') OR exit('');
             <!--Form to add/update an item-->
             <div class="col-sm-4 hidden" id='createNewItemDiv'>
                 <div class="well">
-                    <button class="btn btn-info btn-xs pull-left" id="useBarcodeScanner">Usar escáner</button>
                     <button class="close cancelAddItem">&times;</button><br>
                     <form name="addNewItemForm" id="addNewItemForm" role="form">
                         <div class="text-center errMsg" id='addCustErrMsg'></div>
@@ -132,6 +132,13 @@ defined('BASEPATH') OR exit('');
                     <div class="col-sm-12" id="itemsListTable"></div>
                 </div>
                 <!--end of table-->
+                <div class="col-sm-2  form-group-sm">
+                                            <span class="pointer text-primary">
+                                                <button class='btn btn-primary btn-sm' data-toggle='modal' data-target='#reportIt'>
+                                                    <i class="fa fa-newspaper-o"></i> Generar Reporte
+                                                </button>
+                                            </span>
+                                        </div>
             </div>
             <!--- End of item list div-->
 
@@ -252,6 +259,22 @@ defined('BASEPATH') OR exit('');
             <div class="modal-footer">
                 <button class="btn btn-primary" id="editItemSubmit">Guardar</button>
                 <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id='reportIt' data-backdrop='static' role='dialog'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="close" data-dismiss='modal'>&times;</div>
+                <h4 class="text-center">Generar Reporte</h4>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-success" id='clickToGen'>Generar</button>
+                <button class="btn btn-danger" data-dismiss='modal'>Cerrar</button>
             </div>
         </div>
     </div>

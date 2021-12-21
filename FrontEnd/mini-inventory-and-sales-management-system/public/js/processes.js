@@ -9,11 +9,7 @@ $(document).ready(function(){
 
 
     //WHEN USE BARCODE SCANNER IS CLICKED
-    $("#useBarcodeScanner").click(function(e){
-        e.preventDefault();
 
-        $("#processCode").focus();
-    });
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -454,7 +450,7 @@ function lapr(url){
 
     $.ajax({
         type:'get',
-        url: url ? url : appRoot+"processes/lapr/",
+        url: url ? url : appRoot+  "processes/lapr/",
         data: {orderBy:orderBy, orderFormat:orderFormat, limit:limit},
 
         success: function(returnedData){

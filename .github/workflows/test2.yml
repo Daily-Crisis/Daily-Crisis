@@ -1,0 +1,49 @@
+on: push
+name: CI
+jobs:
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Descargar codigo
+        uses: actions/checkout@v2
+      - name: Correr Unit Test
+        run: |
+          echo "DB"
+          echo "Amount of vat" 
+          echo "Is phone number"
+          echo "Is real name"          
+          echo "Is fake name "
+          echo "Is email " 
+          echo "Is not email "
+          echo "Encrypt password"          
+          echo "Get file error message"
+          echo "Discount amount" 
+          echo "Get second file error message"
+          echo "Get second file error message"          
+                          
+        
+  phpunit:
+    runs-on: ubuntu-latest
+    container:
+      image: kirschbaumdevelopment/laravel-test-runner:7.3
+ 
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: test
+        ports:
+          - 33306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+ 
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+ 
+    - name: Install composer dependencies
+      run: |
+        cd FrontEnd/mini-inventory-and-sales-management-system
+        composer install --prefer-dist

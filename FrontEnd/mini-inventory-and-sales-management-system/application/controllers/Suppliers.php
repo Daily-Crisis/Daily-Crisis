@@ -65,7 +65,7 @@ class Suppliers extends CI_Controller{
         
         //get all customers from db
         $data['allSuppliers'] = $this->supplier->getAll($orderBy, $orderFormat, $start, $limit);
-        $data['range'] = $totalSuppliers > 0 ? ($start+1) . "-" . ($start + count($data['allSuppliers'])) . " of " . $totalSuppliers : "";
+        $data['range'] = $totalSuppliers > 0 ? ($start+1) . "-" . ($start + count($data['allSuppliers'])) . " de " . $totalSuppliers : "";
         $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
         

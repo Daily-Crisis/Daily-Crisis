@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('');
 ?>
 
-<?php echo isset($range) && !empty($range) ? "Showing ".$range : ""?>
+<?php echo isset($range) && !empty($range) ? "Mostrando ".$range : ""?>
 <div class="panel panel-primary">
     <div class="panel-heading">CUENTAS DE ADMINISTRADORES</div>
     <?php if($allAdministrators):?>
@@ -10,11 +10,11 @@ defined('BASEPATH') OR exit('');
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>CI</th>
+                    <th>Nº</th>
                     <th>NOMBRE</th>
                     <th>CORREO</th>
-                    <th>TELEFONO</th>
-                    <th>TRABAJO</th>
+                    <th>TELÉFONO</th>
+                    <th>TELÉFONO OPCIONAL</th>
                     <th>PUESTO</th>
                     <th>FECHA DE CREACIÓN</th>
                     <th>ULTIMO INGRESO</th>
@@ -25,8 +25,9 @@ defined('BASEPATH') OR exit('');
             </thead>
             <tbody>
                 <?php foreach($allAdministrators as $get):?>
+                  <?php if($get->deleted == "0"):?>
                     <tr>
-                        <th><?=$sn?>.</th>
+                        <th class="adminSN"><?=$sn?>.</th>
                         <td class="adminName"><?=$get->first_name ." ". $get->last_name?></td>
                         <td class="hidden firstName"><?=$get->first_name?></td>
                         <td class="hidden lastName"><?=$get->last_name?></td>
@@ -50,13 +51,14 @@ defined('BASEPATH') OR exit('');
                         </td>
                         <td class="text-center text-danger deleteAdmin" id="del-<?=$get->id?>">
                             <?php if($get->deleted === "1"): ?>
-                            <a class="pointer">Deshacer eliminación</a>
+                            <a class="fa fa-trash deleteAdmin pointer">Deshacer eliminación</a>
                             <?php else: ?>
                             <i class="fa fa-trash pointer"></i>
                             <?php endif; ?>
                         </td>
                     </tr>
                     <?php $sn++;?>
+                    <?php endif;?>
                 <?php endforeach;?>
             </tbody>
         </table>

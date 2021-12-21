@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('');
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <b>Teléfono del Cliente: <?=$cust_phone?></b>
+            <b>NIT del Cliente: <?=$cust_phone?></b>
         </div>
     </div>
     <div class="row">

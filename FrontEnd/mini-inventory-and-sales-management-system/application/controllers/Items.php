@@ -5,6 +5,9 @@ defined('BASEPATH') OR exit('');
  * Description of Items
  *
  */
+
+
+
 class Items extends CI_Controller{
     
     public function __construct(){
@@ -62,7 +65,7 @@ class Items extends CI_Controller{
         
         //get all items from db
         $data['allItems'] = $this->item->getAll($orderBy, $orderFormat, $start, $limit);
-        $data['range'] = $totalItems > 0 ? "Showing " . ($start+1) . "-" . ($start + count($data['allItems'])) . " of " . $totalItems : "";
+        $data['range'] = $totalItems > 0 ? "Mostrando " . ($start+1) . "-" . ($start + count($data['allItems'])) . " de " . $totalItems : "";
         $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
         $data['cum_total'] = $this->item->getItemsCumTotal();
@@ -391,4 +394,10 @@ class Items extends CI_Controller{
         //set final output
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
+
+        public function report(){
+            //get all transactions from db ranging from $from_date to $to_date
+
+
+        }
 }
