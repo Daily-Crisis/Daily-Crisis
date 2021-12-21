@@ -1,10 +1,15 @@
 <?php
+
+
 defined('BASEPATH') OR exit('');
 require_once 'functions.php';
 /**
  * Description of Transactions
  *
  */
+
+
+
 class Transactions extends CI_Controller{
     private $total_before_discount = 0, $discount_amount = 0, $vat_amount = 0, $eventual_total = 0;
 
@@ -416,7 +421,7 @@ class Transactions extends CI_Controller{
      * @param type $vatPercentage the percentage of VAT
      * @return type
      */
-    private function getVatAmount($cumAmount, $vatPercentage){
+    public function getVatAmount($cumAmount, $vatPercentage){
         $vatAmount = ($vatPercentage/100) * $cumAmount;
 
         return $vatAmount;
