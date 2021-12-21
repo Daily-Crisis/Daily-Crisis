@@ -66,7 +66,7 @@ class Administrators extends CI_Controller{
         
         //get all customers from db
         $data['allAdministrators'] = $this->admin->getAll($orderBy, $orderFormat, $start, $limit);
-        $data['range'] = $totalAdministrators > 0 ? ($start+1) . "-" . ($start + count($data['allAdministrators'])) . " of " . $totalAdministrators : "";
+        $data['range'] = $totalAdministrators > 0 ? ($start+1) . "-" . ($start + count($data['allAdministrators'])) . " de " . $totalAdministrators : "";
         $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
         
@@ -226,7 +226,7 @@ class Administrators extends CI_Controller{
     
     public function delete(){
         $this->genlib->ajaxOnly();
-        
+        $item_id = $this->input->post('i', TRUE);
         $admin_id = $this->input->post('_aId');
         $new_value = $this->genmod->gettablecol('admin', 'deleted', 'id', $admin_id) == 1 ? 0 : 1;
         
@@ -235,7 +235,12 @@ class Administrators extends CI_Controller{
         $json['status'] = $done ? 1 : 0;
         $json['_nv'] = $new_value;
         $json['_aId'] = $admin_id;
-        
+                if($item_id){
+                    $this->db->where('id', $item_id)->delete('admin');
+
+                    $json['status'] = 1;
+                }
+
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
     

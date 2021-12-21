@@ -197,7 +197,7 @@ $(document).ready(function(){
              * hide "cash" an "pos" fields
              * 
              */
-            $("#amountTenderedLabel").html("Amount Tendered");
+            $("#amountTenderedLabel").html("Importe recibido");
             $("#amountTendered").val($("#cumAmount").html()).prop('disabled', true);
             $("#changeDue").html('0.00');
             $(".cashAndPos").addClass('hidden');
@@ -223,7 +223,7 @@ $(document).ready(function(){
              * unset any value that might be in "changeDue"
              * hide "cash" an "pos" fields
              */
-            $("#amountTenderedLabel").html("Amount Tendered");
+            $("#amountTenderedLabel").html("Importe recibido");
             $("#amountTendered").val('').prop('disabled', false);
             $("#changeDue").html('');
             $(".cashAndPos").addClass('hidden');
@@ -568,11 +568,11 @@ $(document).ready(function(){
         $("#newTransDiv").toggleClass('collapse');
         
         if($("#newTransDiv").hasClass('collapse')){
-            $(this).html("<i class='fa fa-plus'></i> New Transaction");
+            $(this).html("<i class='fa fa-plus'></i> Nueva Transacción");
         }
         
         else{
-            $(this).html("<i class='fa fa-minus'></i> New Transaction");
+            $(this).html("<i class='fa fa-minus'></i> Nueva Transacción");
             
             //remove error messages
             $("#itemCodeNotFoundMsg").html("");
@@ -595,7 +595,7 @@ $(document).ready(function(){
         $("#itemCodeNotFoundMsg").html("");
         
         //change main "new transaction" button back to default
-        $("#showTransForm").html("<i class='fa fa-plus'></i> New Transaction");
+        $("#showTransForm").html("<i class='fa fa-plus'></i> Nueva Transacción");
     });
     
     
@@ -1039,7 +1039,47 @@ function getDiscountAmount(cumAmount){
     return discountAmount;
 }
 
+function getEarnings(year){
+    var yearToFetch = year || '';
 
+    $.ajax({
+        type: 'GET',
+        url: appRoot+"dashboard/earningsGraph/"+yearToFetch,
+        dataType: "html"
+    }).done(function(data){
+        var response = jQuery.parseJSON(data);
+
+        var barChartData = {
+            labels : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"],
+            datasets : [{
+                fillColor : "rgba(255,255,255,1)", // bar color
+                strokeColor : "rgba(151,187,205,0.8)", //hover color
+                highlightFill : "rgba(242,245,233,1)", // highlight color
+                highlightStroke : "rgba(151,187,205,1)", // highlight hover color
+                data : response.total_earnings
+            }]
+        };
+
+        //show the expense title
+        document.getElementById('earningsTitle').innerHTML = "Earnings (" + response.earningsYear +")";
+
+        var earningsGraph = document.getElementById("earningsGraph").getContext("2d");
+
+        window.myBar = new Chart(earningsGraph).Bar(barChartData, {
+            responsive : true,
+            scaleGridLineColor : "rgba(255,255,255,1)",
+            scaleShowHorizontalLines: true,
+            scaleShowVerticalLines: false,
+            barStrokeWidth : 1,
+            barValueSpacing : 20
+        });
+
+        //remove the loading info
+        $("#yearAccountLoading").html("");
+    }).fail(function(){
+        console.log('req failed');
+    });
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

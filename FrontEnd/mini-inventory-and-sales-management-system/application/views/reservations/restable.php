@@ -9,20 +9,22 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>NIT</th>
-                    <th>Código</th>
-                    <th>Total de Elementos</th>
-                    <th>Monto Total</th>
-                    <th>Monto Cancelado</th>
-                    <th>Saldo</th>
-                    <th>Modo de Pago</th>
-                    <th>Encargado</th>
-                    <th>Cliente</th>
-                    <th>Fecha</th>
+                    <th>Nº</th>
+                    <th>CÓDIGO</th>
+                    <th>TOTAL ELEMENTOS</th>
+                    <th>MONTO TOTAL</th>
+                    <th>MONTO CANCELADO</th>
+                    <th>SALDO</th>
+                    <th>MODO DE PAGO</th>
+                    <th>ENCARGADO</th>
+                    <th>CLIENTE</th>
+                    <th>FECHA</th>
+                    <th>ANULAR RESERVA</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($allReservations as $get): ?>
+                 <?php if($get->quantity >= "1"):?>
                 <tr>
                     <th><?= $sn ?>.</th>
                     <td><a class="pointer vtr" title="Pulsa Para Ver el Recibo"><?= $get->ref ?></a></td>
@@ -34,8 +36,16 @@
                     <td><?=$get->staffName?></td>
                     <td><?=$get->cust_name?> - <?=$get->cust_phone?> - <?=$get->cust_email?></td>
                     <td><?= date('jS M, Y h:ia', strtotime($get->resDate)) ?></td>
-                </tr>
+                    <td class="text-center deleteSupplier " >
+                            <?php if($get->quantity < "1"): ?>
+                            <a class="fa  deleteSupplier pointer">Reserva Anulada</a>
+                            <?php else: ?>
+                            <i class="fa fa-trash pointer"></i>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
                 <?php $sn++; ?>
+                <?php endif;?>
                 <?php endforeach; ?>
             </tbody>
         </table>

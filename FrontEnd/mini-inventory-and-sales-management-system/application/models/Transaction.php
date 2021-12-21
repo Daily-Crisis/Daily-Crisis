@@ -5,6 +5,8 @@ defined('BASEPATH') OR exit('');
 /**
  * Description of Transaction
  *
+ * @author Amir <amirsanni@gmail.com>
+ * @date 27th RabAwwal, 1437A.H (8th Jan., 2016)
  */
 class Transaction extends CI_Model {
 
@@ -47,9 +49,9 @@ class Transaction extends CI_Model {
                 transactions.transDate, transactions.lastUpdated, transactions.amountTendered, transactions.changeDue,
                 CONCAT_WS(" ", admin.first_name, admin.last_name) as "staffName",
                 transactions.cust_name, transactions.cust_phone, transactions.cust_email');
-            
+
             $this->db->select_sum('transactions.quantity');
-            
+
             $this->db->join('admin', 'transactions.staffId = admin.id', 'LEFT');
             $this->db->limit($limit, $start);
             $this->db->group_by('ref');
@@ -75,7 +77,7 @@ class Transaction extends CI_Model {
      */
 
     /**
-     * 
+     *
      * @param type $_iN item Name
      * @param type $_iC item Code
      * @param type $desc Desc
@@ -290,7 +292,7 @@ class Transaction extends CI_Model {
      * *******************************************************************************************************************************
      * *******************************************************************************************************************************
      */
-    
+
     public function getDateRange($from_date, $to_date){
         if ($this->db->platform() == "sqlite3") {
             $q = "SELECT transactions.ref, transactions.totalMoneySpent, transactions.modeOfPayment, transactions.staffId,
@@ -299,14 +301,14 @@ class Transaction extends CI_Model {
                 transactions.cust_name, transactions.cust_phone, transactions.cust_email
                 FROM transactions
                 LEFT OUTER JOIN admin ON transactions.staffId = admin.id
-                WHERE 
+                WHERE
                 date(transactions.transDate) >= {$from_date} AND date(transactions.transDate) <= {$to_date}
                 GROUP BY ref
                 ORDER BY transactions.transId DESC";
 
             $run_q = $this->db->query($q);
         }
-        
+
         else {
             $this->db->select('transactions.ref, transactions.totalMoneySpent, transactions.modeOfPayment, transactions.staffId,
                     transactions.transDate, transactions.lastUpdated, transactions.amountTendered, transactions.changeDue,
@@ -326,7 +328,7 @@ class Transaction extends CI_Model {
 
             $run_q = $this->db->get('transactions');
         }
-        
+
         return $run_q->num_rows() ? $run_q->result() : FALSE;
     }
 }

@@ -9,11 +9,11 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>NÚMERO</th>
+                    <th>Nº</th>
                     <th>CÓDIGO</th>
                     <th>TOTAL ELEMENTOS</th>
                     <th>MONTO TOTAL</th>
-                    <th>MONTO CANELADO</th>
+                    <th>MONTO CANCELADO</th>
                     <th>SALDO</th>
                     <th>MODO DE PAGO</th>
                     <th>ENCARGADO</th>

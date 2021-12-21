@@ -9,7 +9,7 @@
 <div class='col-xs-12'>
     <div class="panel panel-primary">
         <!-- Default panel contents -->
-        <div class="panel-heading">Elementos</div>
+        <div class="panel-heading">ELEMENTOS</div>
         <?php if($allItems): ?>
         <div class="table table-responsive">
             <table class="table table-bordered table-striped" style="background-color: #f5f5f5">

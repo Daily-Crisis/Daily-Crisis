@@ -66,7 +66,7 @@ class Reservations extends CI_Controller{
         
         //get all reservations from db
         $data['allReservations'] = $this->reservation->getAll($orderBy, $orderFormat, $start, $limit);
-        $data['range'] = $totalReservations > 0 ? ($start+1) . "-" . ($start + count($data['allReservations'])) . " of " . $totalReservations : "";
+        $data['range'] = $totalReservations > 0 ? "Mostrando " .($start+1) . "-" . ($start + count($data['allReservations'])) . " de " . $totalReservations : "";
         $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
         
@@ -459,4 +459,19 @@ class Reservations extends CI_Controller{
         
         $this->load->view('reservations/resReport', $data);
     }
+
+        public function delete(){
+            $this->genlib->ajaxOnly();
+
+            $supplier_id = $this->input->post('_aId');
+            $new_value = $this->genmod->gettablecol('reservation', 'deleted', 'id', $res_id) == 1 ? 0 : 1;
+
+            $done = $this->reservation->delete($res_id, $new_value);
+
+            $json['status'] = $done ? 1 : 0;
+            $json['_nv'] = $new_value;
+            $json['_aId'] = $res_id;
+
+            $this->output->set_content_type('application/json')->set_output(json_encode($json));
+        }
 }

@@ -133,6 +133,43 @@ $(document).ready(function(){
         ceipacp();//recalculate price
         calchadue();//also recalculate change due
     });
+
+    $("#allSupplier").on('click', '.deleteSupplier', function(){
+        var confirm = window.confirm("Proceed?");
+        var suppRow = $(this).closest('tr')
+
+        if(confirm){
+            var ElemId = $(this).attr('id');
+
+            var supplierId = ElemId.split("-")[1];//get the supplierId
+
+            //show spinner
+            $("#"+ElemId).html("<i class='"+spinnerClass+"'</i>");
+
+            if(supplierId){
+                $.ajax({
+                    url: appRoot+"reservations/delete",
+                    method: "POST",
+                    data: {_aId:supplierId}
+                }).done(function(returnedData){
+                    if(returnedData.status === 1){
+
+                        //change the icon to "undo delete" if it's "active" before the change and vice-versa
+                        var newHTML = returnedData._nv === 1 ? "<a class='pointer'>Undo Delete</a>" : "<i class='fa fa-trash pointer'></i>";
+
+                        //change the icon
+                        $("#del-"+returnedData._aId).html(newHTML);
+                        changeFlashMsgContent('Supplier deleted', '', 'green', 1000);
+
+                    }
+
+                    else{
+                        alert(returnedData.status);
+                    }
+                });
+            }
+        }
+    });
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -447,9 +484,6 @@ $(document).ready(function(){
                             //reset the form
                             resetSalesResForm();
 
-                            //display receipt
-                            $("#resReceipt").html(returnedData.resReceipt);//paste receipt
-                            $("#resReceiptModal").modal('show');//show modal
 
                             //refresh the reservation list table
                             lars_();
@@ -568,11 +602,11 @@ $(document).ready(function(){
         $("#newResDiv").toggleClass('collapse');
         
         if($("#newResDiv").hasClass('collapse')){
-            $(this).html("<i class='fa fa-plus'></i> New Reservation");
+            $(this).html("<i class='fa fa-plus'></i> Nueva Reservación");
         }
         
         else{
-            $(this).html("<i class='fa fa-minus'></i> New Reservation");
+            $(this).html("<i class='fa fa-minus'></i> Nueva Reservación");
             
             //remove error messages
             $("#itemCodeNotFoundMsg").html("");
@@ -595,7 +629,7 @@ $(document).ready(function(){
         $("#itemCodeNotFoundMsg").html("");
         
         //change main "new reservation" button back to default
-        $("#showResForm").html("<i class='fa fa-plus'></i> New Reservation");
+        $("#showResForm").html("<i class='fa fa-plus'></i> Nueva Reservación");
     });
     
     

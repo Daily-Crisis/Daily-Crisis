@@ -105,9 +105,12 @@ defined('BASEPATH') OR exit('');
 
                         <div class="row">
                             <div class="col-sm-12 form-group-sm">
-                                <label for="processDescription" class="">Descrición (Opcional)</label>
-                                <textarea class="form-control" id="processDescription" name="processDescription" rows='4'
-                                          placeholder="Descrición"></textarea>
+                                <label for="processDescription" class="">Descrición</label>
+                                <select class="form-control checkField" id="processDescription">
+                                     <option value="">---</option>
+                                     <option value="Abonado">Abonado</option>
+                                     <option value="Siembra">Siembra</option>
+                                </select>
                             </div>
                         </div>
                         <br>

@@ -9,10 +9,10 @@ defined('BASEPATH') OR exit('');
                 <div class="pull-left"><i class="fa fa-exchange"></i></div>
                 <div class="pull-right">
                     <div><?=$totalSalesToday?></div>
-                    <div class="latestStuffsText">Total Diario de Ventas</div>
+                    <div class="latestStuffsText">Total De Elementos Vendidos</div>
                 </div>
             </div>
-            <div class="panel-footer text-center" style="color:#5cb85c">Número Diario de Items Vendidos</div>
+            <div class="panel-footer text-center" style="color:#5cb85c">Número Total De Elementos Vendidos</div>
         </div>
     </div>
     <div class="col-sm-4">
@@ -41,6 +41,8 @@ defined('BASEPATH') OR exit('');
     </div>
 </div>
 
+<div align="center"><img src="<?=base_url()?>public/images/ema.png" ></div>
+
 
 <!-- ROW OF GRAPH/CHART OF EARNINGS PER MONTH/YEAR
 <div class="row margin-top-5">
@@ -56,26 +58,9 @@ defined('BASEPATH') OR exit('');
         </div>
     </div>
 
-    <div class="col-sm-3">
-        <section class="panel form-group-sm">
-            <label class="control-label">Select Account Year:</label>
-            <select class="form-control" id="earningAndExpenseYear">
-                <?php $years = range("2016", date('Y')); ?>
-                <?php foreach($years as $y):?>
-                <option value="<?=$y?>" <?=$y == date('Y') ? 'selected' : ''?>><?=$y?></option>
-                <?php endforeach; ?>
-            </select>
-            <span id="yearAccountLoading"></span>
-        </section>
-        
-        <section class="panel">
-          <center>
-              <canvas id="paymentMethodChart" width="200" height="200"/></canvas><br>Payment Methods(%)<span id="paymentMethodYear"></span>
-          </center>
-        </section>
-    </div>
-</div>-->
-<!-- END OF ROW OF GRAPH/CHART OF EARNINGS PER MONTH/YEAR-->
+
+</div>
+ END OF ROW OF GRAPH/CHART OF EARNINGS PER MONTH/YEAR-->
 
 <!-- ROW OF SUMMARY
 <div class="row margin-top-5">
