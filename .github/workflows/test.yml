@@ -27,4 +27,6 @@ jobs:
         composer install --prefer-dist
  
     - name: Run Testsuite
-      run: .vendor/bin/phpunit --testdox
+      run: |
+         cd FrontEnd/mini-inventory-and-sales-management-system
+         vendor/bin/phpunit --testdox
