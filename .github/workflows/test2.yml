@@ -1,6 +1,15 @@
 on: push
 name: CI
 jobs:
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Descargar codigo
+        uses: actions/checkout@v2
+      - name: Correr Unit Test
+        run: gradle test
+        
   phpunit:
     runs-on: ubuntu-latest
     container:
@@ -25,8 +34,4 @@ jobs:
       run: |
         cd FrontEnd/mini-inventory-and-sales-management-system
         composer install --prefer-dist
- 
-    - name: Run Testsuite
-      run: |
-         cd FrontEnd/mini-inventory-and-sales-management-system
-         ./vendor/bin/phpunit --testdox
+
