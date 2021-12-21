@@ -24,7 +24,7 @@ jobs:
     - name: Install composer dependencies
       run: |
         cd FrontEnd/mini-inventory-and-sales-management-system
-        composer install --no-scripts
+        composer install --prefer-dist
  
     - name: Prepare Laravel Application
       run: |
