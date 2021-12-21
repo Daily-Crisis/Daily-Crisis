@@ -26,11 +26,6 @@ jobs:
         cd FrontEnd/mini-inventory-and-sales-management-system
         composer install --prefer-dist
  
-    - name: Prepare Laravel Application
-      run: |
-        cd FrontEnd/mini-inventory-and-sales-management-system
-        cp .env.ci .env
-        php artisan key:generate
  
     - name: Run Testsuite
       run: FrontEnd/mini-inventory-and-sales-management-system/vendor/bin/phpunit tests/
